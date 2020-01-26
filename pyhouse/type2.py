@@ -1,5 +1,32 @@
+from enum import Enum
 from typing import List, Optional, TypedDict                                                                                 
 import datetime                                                                                 
+
+
+class CategoryType(str, Enum):
+    MILESTONE = "milestone"
+
+class LinkedFileType(str, Enum):
+    BOX = "box"
+    DROPBOX = "dropbox"
+    GOOGLE = "google"
+    ONEDRIVE = "onedrive"
+    URL = "url"
+    
+class MilestoneWorkflowState(str, Enum):
+    DONE = "done"
+    IN_PROGRESS = "in progress"
+    TODO = "to do"
+
+class StoryType(str, Enum):
+    BUG = "bug"
+    CHORE = "chore"
+    FEATURE = "feature"
+
+class StoryLinkVerb(str, Enum):
+    BLOCKS = "blocks"
+    DUPLICATES = "duplicates"
+    RELATES_TO = "relates to"
 
 
 ##############
@@ -15,7 +42,7 @@ class Category(TypedDict, total=False):
     external_id: Optional[str]                                 # This field can be set to another unique ID. In the case that the Category has been imported from another tool, the ID in the other tool can be indicated here.
     id: int                                                    # The unique ID of the Category.
     name: str                                                  # The name of the Category.
-    type: str                                                  # The type of entity this Category is associated with; currently Milestone is the only type of Category.
+    type: CategoryType                                         # The type of entity this Category is associated with; currently Milestone is the only type of Category.
     updated_at: datetime.datetime                              # The time/date that the Category was updated.
 
 class CreateCategoryParams(TypedDict, total=False):                                                                                 
@@ -58,7 +85,7 @@ class CreateStoryContents(TypedDict, total=False):
     name: str                                                  # The name of the story.
     owner_ids: List[str]                                       # An array of UUIDs of the owners of this story.
     project_id: int                                            # The ID of the project the story belongs to.
-    story_type: str                                            # The type of story (feature, bug, chore).
+    story_type: StoryType                                      # The type of story (feature, bug, chore).
     tasks: List[EntityTemplateTask]                            # An array of tasks to be populated by the template.
     workflow_state_id: int                                     # The ID of the workflow state the story is currently in.
 
@@ -92,7 +119,7 @@ class StoryContents(TypedDict, total=False):
     name: str                                                  # The name of the story.
     owner_ids: List[str]                                       # An array of UUIDs of the owners of this story.
     project_id: int                                            # The ID of the project the story belongs to.
-    story_type: str                                            # The type of story (feature, bug, chore).
+    story_type: StoryType                                      # The type of story (feature, bug, chore).
     tasks: List[ResponseStoryContentsTasks]                    # An array of tasks connected to the story.
     workflow_state_id: int                                     # The ID of the workflow state the story is currently in.
 
@@ -290,7 +317,7 @@ class LinkedFile(TypedDict, total=False):
     size: Optional[int]                                        # The filesize, if the integration provided it.
     story_ids: List[int]                                       # The IDs of the stories this file is attached to.
     thumbnail_url: Optional[str]                               # The URL of the file thumbnail, if the integration provided it.
-    type: str                                                  # The integration type (e.g. google, dropbox, box).
+    type: LinkedFileType                                       # The integration type (e.g. google, dropbox, box).
     updated_at: datetime.datetime                              # The time/date the LinkedFile was updated.
     uploader_id: str                                           # The UUID of the member that uploaded the file.
     url: str                                                   # The URL of the file.
@@ -485,7 +512,6 @@ class MilestoneStats(TypedDict, total=False):
     """A group of calculated values for this Milestone."""                                                                                 
     average_cycle_time: int                                    # The average cycle time (in seconds) of completed stories in this Milestone.
     average_lead_time: int                                     # The average lead time (in seconds) of completed stories in this Milestone.
-
 
 class Milestone(TypedDict, total=False):                                                                                 
     """A Milestone is a collection of Epics that represent a release or some other large initiative that your organization is working on."""                                                                                 
@@ -694,7 +720,7 @@ class TypedStoryLink(TypedDict, total=False):
     subject_id: int                                            # The ID of the subject Story.
     type: str                                                  # This indicates whether the Story is the subject or object in the Story Link.
     updated_at: datetime.datetime                              # The time/date when the Story Link was last updated.
-    verb: str                                                  # How the subject Story acts on the object Story. This can be “blocks”, “duplicates”, or “relates to”.
+    verb: StoryLinkVerb                                        # How the subject Story acts on the object Story. This can be “blocks”, “duplicates”, or “relates to”.
                                                                                      
 class Task(TypedDict, total=False):                                                                                 
     complete: bool                                             # True/false boolean indicating whether the Task has been completed.
@@ -755,7 +781,7 @@ class Story(TypedDict, total=False):
     started_at: Optional[datetime.datetime]                    # The time/date the Story was started.
     started_at_override: Optional[datetime.datetime]           # A manual override for the time/date the Story was started.
     story_links: List[TypedStoryLink]                          # An array of story links attached to the Story.
-    story_type: str                                            # The type of story (feature, bug, chore).
+    story_type: StoryType                                      # The type of story (feature, bug, chore).
     tasks: List[Task]                                          # An array of tasks connected to the story.
     updated_at: Optional[datetime.datetime]                    # The time/date the Story was updated.
     workflow_state_id: int                                     # The ID of the workflow state the story is currently in.
@@ -797,7 +823,7 @@ class StorySlim(TypedDict, total=False):
     started_at: Optional[datetime.datetime]                    # The time/date the Story was started.
     started_at_override: Optional[datetime.datetime]           # A manual override for the time/date the Story was started.
     story_links: List[TypedStoryLink]                          # An array of story links attached to the Story.
-    story_type: str                                            # The type of story (feature, bug, chore).
+    story_type: StoryType                                      # The type of story (feature, bug, chore).
     task_ids: List[int]                                        # An array of IDs of Tasks attached to the story.
     updated_at: Optional[datetime.datetime]                    # The time/date the Story was updated.
     workflow_state_id: int                                     # The ID of the workflow state the story is currently in.

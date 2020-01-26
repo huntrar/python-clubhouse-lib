@@ -2,13 +2,9 @@ import os
 import json
 import requests
 import datetime
-from typing import List, Union
+from typing import List, Union, TypedDict
 
-from .type2 import (
-    Category,
-    Milestone,
-    EntityTemplate
-)
+from .type2 import *
 from .type import (
     CategoryType,
     CategoryCreate,
@@ -18,25 +14,39 @@ from .type import (
     StoryContentsCreate,
 )
 
-class notProvided:
-    pass
-NotProvided = notProvided()
+"""
+Note to future readers: The API for this library opts to define an additional None-like type, called Omit. 
+This is due to the fact that Clubhouse makes a meaningful distinction between parameters which are omitted 
+and parameters which are passed as null. This does cause problems with type validators, however. Many
+functions herein follow a pattern of defining parameters of some type and defaulting to the value `Omit`.
+This error is intentional, however it does lead to some questionable looking function signatures due to
+the liberal use of "# type: ignore" comments on each parameter line.
 
+We have explored alternatives, and we have deemed this option to be the least harmful overall. We 
+experimented with using union types and type aliases, however those expand to a ton of noise in all of the
+autocompletion engines we tested, which somewhat limited the utility of having named parameters in the first
+place.
+"""
+
+class omitType:
+    pass
+Omit = omitType()
 
 
 def PrepareLocals(data: dict) -> dict:
     keys = []
     for key in data:
-        if data[key] is NotProvided or key == 'self':
+        if data[key] is Omit or key == 'self':
             keys.append(key)
     for key in keys:
         del data[key]
     return data
 
 class ClubhouseClient:
-    Int = Union[int, None, NotProvided]
-    Str = Union[str, None, NotProvided]
-    Date = Union[datetime.datetime, None, NotProvided]
+    Int = Union[int, None, Omit]
+    Str = Union[str, None, Omit]
+    Bool = Union[bool, None, Omit]
+    Date = Union[datetime.datetime, None, Omit]
 
     def __init__(
         self,
@@ -132,11 +142,23 @@ class ClubhouseClient:
     ##############
     def listCategories(self) -> List[Category]:
         """List Categories returns a list of all Categories and their attributes."""
-        return [Category(j) for j in self.get("categories").json()]
+        return self.get("categories").json()
 
-    def createCategory(self, category: CategoryCreate) -> Category:
-        """Create Category allows you to create a new Category in Clubhouse."""
-        return Category(self.post("categories", category).json())
+    def createCategory(self, 
+        name: str, # Test
+        type: CategoryType,
+        color: Str = Omit,
+        external_id: Str = Omit
+    ) -> Category:
+        """
+        Create Category allows you to create a new Category in Clubhouse.
+        
+        param name: The name of the new Category.
+        param type: The type of entity this Category is associated with; currently Milestone is the only type of Category.
+        param color: The hex color to be displayed with the Category (for example, “#ff0000”).
+        param external_id: This field can be set to another unique ID. In the case that the Category has been imported from another tool, the ID in the other tool can be indicated here.
+        """
+        return self.post("categories", PrepareLocals(locals())).json()
 
     def getCategory(self, category_public_id: int) -> Category:
         """Get Category returns information about the selected Category."""
