@@ -1,7 +1,6 @@
 from enum import Enum
-from typing import TypedDict, List
+from typing import List, TypedDict
 import datetime
-
 
 class Entity(TypedDict, total=False):
     id: int
@@ -24,11 +23,11 @@ class Category(Entity):
     name: str
     type: CategoryType
 
-class CategoryCreateRequired(TypedDict):
+class CategoryCreateRequired(TypedDict, total=False):
     name: str
     type: CategoryType
 
-class CategoryCreate(CategoryCreateRequired, total=False):
+class CategoryCreate(CategoryCreateRequired):
     color: str
     external_id: str
 
@@ -190,13 +189,12 @@ class EntityTemplateCreateRequired(Entity):
     name: str
     story_contents: StoryContentsCreate
 
-class EntityTemplateCreate(EntityTemplateCreateRequired, total=False):
+class EntityTemplateCreate(EntityTemplateCreateRequired):
     author_id: str
 
 class EntityTemplateUpdate(TypedDict, total=False):
     name: str
     story_contents: StoryContentsCreate
-
 
 ##############
 # Milestones #

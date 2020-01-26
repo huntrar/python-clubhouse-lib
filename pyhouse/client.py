@@ -1,22 +1,43 @@
 import os
 import json
 import requests
-from typing import List
+import datetime
+from typing import List, Union
 
-from testtype import (
+from .type2 import (
     Category,
+    Milestone,
+    EntityTemplate
+)
+from .type import (
     CategoryType,
     CategoryCreate,
     CategoryUpdate,
-    Milestone,
-    EntityTemplate,
     EntityTemplateCreate,
     EntityTemplateUpdate,
     StoryContentsCreate,
 )
 
+class notProvided:
+    pass
+NotProvided = notProvided()
+
+
+
+def PrepareLocals(data: dict) -> dict:
+    keys = []
+    for key in data:
+        if data[key] is NotProvided or key == 'self':
+            keys.append(key)
+    for key in keys:
+        del data[key]
+    return data
 
 class ClubhouseClient:
+    Int = Union[int, None, NotProvided]
+    Str = Union[str, None, NotProvided]
+    Date = Union[datetime.datetime, None, NotProvided]
+
     def __init__(
         self,
         token: str,
@@ -34,6 +55,7 @@ class ClubhouseClient:
     # Requests #
     ############
     def get(self, endpoint: str, params: dict = None) -> requests.Response:
+        print(PrepareLocals(locals()))
         if params is None:
             params = {}
         params["token"] = self.token
@@ -118,7 +140,8 @@ class ClubhouseClient:
 
     def getCategory(self, category_public_id: int) -> Category:
         """Get Category returns information about the selected Category."""
-        return Category(self.get("categories/" + str(category_public_id)).json())
+        result: Category = self.get("categories/" + str(category_public_id)).json()
+        return result
 
     def updateCategory(
         self, category_public_id: int, category: CategoryUpdate
@@ -147,7 +170,7 @@ class ClubhouseClient:
     ####################
     def listEntityTemplates(self) -> List[EntityTemplate]:
         """List all the entity templates for an organization."""
-        return [EntityTemplate(j) for j in self.get("entity-templates").json()]
+        return self.get("entity-templates").json()
 
     def createEntityTemplate(
         self, entityTemplate: EntityTemplateCreate
@@ -173,11 +196,9 @@ class ClubhouseClient:
         self, entity_template_public_id: str, entityTemplate: EntityTemplateUpdate
     ) -> EntityTemplate:
         """Update an entity template’s name or its contents."""
-        return EntityTemplate(
-            self.put(
+        return self.put(
                 "entity-templates/" + entity_template_public_id, entityTemplate
             ).json()
-        )
 
     def deleteEntityTemplate(self, entity_template_public_id: str) -> requests.Response:
         """Delete an entity template."""
@@ -185,36 +206,38 @@ class ClubhouseClient:
 
 
 if __name__ == "__main__":
-    client = ClubhouseClient(os.environ.get("CLUBHOUSE_API_TOKEN"), debug=True)
+    key = os.environ.get("CLUBHOUSE_API_TOKEN")
+    if key is not None and key != '':
+        client = ClubhouseClient(key, debug=True)
 
-    # Categories
-    # print([x for x in client.listCategories()])
-    # print(
-    #     client.createCategory(CategoryCreate(name="foof", type=CategoryType.MILESTONE))
-    # )
-    # print(client.getCategory(36))
-    # print(client.deleteCategory(33))
-    # print(client.updateCategory(38, CategoryUpdate(color="#0000ff")))
-    # print([x for x in client.listCategoryMilestones(36)])
+        # Categories
+        # print([x for x in client.listCategories()])
+        # print(
+        #     client.createCategory(CategoryCreate(name="foof", type=CategoryType.MILESTONE))
+        # )
+        # print(client.getCategory(36))
+        # print(client.deleteCategory(33))
+        # print(client.updateCategory(38, CategoryUpdate(color="#0000ff")))
+        # print([x for x in client.listCategoryMilestones(36)])
 
-    # Entity-Templates
-    # print(client.enableStoryTemplates())
-    # print([x for x in client.listEntityTemplates()])
-    # print(
-    #     client.createEntityTemplate(
-    #         EntityTemplateCreate(
-    #             name="deez", story_contents=StoryContentsCreate(description="test")
-    #         )
-    #     )
-    # )
-    # print(client.getEntityTemplate("5e05cf80-bb9f-4acd-95e8-18a695d59bca"))
-    # print(
-    #     client.updateEntityTemplate(
-    #         "5e05d5d6-ed99-41e0-a0c3-a8f50490034d",
-    #         EntityTemplateUpdate(
-    #             name="meese", story_contents=StoryContentsCreate(description="lul")
-    #         ),
-    #     )
-    # )
-    # print(client.deleteEntityTemplate("5e05cf80-bb9f-4acd-95e8-18a695d59bca"))
-    # print(client.disableStoryTemplates())
+        # Entity-Templates
+        # print(client.enableStoryTemplates())
+        # print([x for x in client.listEntityTemplates()])
+        # print(
+        #     client.createEntityTemplate(
+        #         EntityTemplateCreate(
+        #             name="deez", story_contents=StoryContentsCreate(description="test")
+        #         )
+        #     )
+        # )
+        # print(client.getEntityTemplate("5e05cf80-bb9f-4acd-95e8-18a695d59bca"))
+        # print(
+        #     client.updateEntityTemplate(
+        #         "5e05d5d6-ed99-41e0-a0c3-a8f50490034d",
+        #         EntityTemplateUpdate(
+        #             name="meese", story_contents=StoryContentsCreate(description="lul")
+        #         ),
+        #     )
+        # )
+        # print(client.deleteEntityTemplate("5e05cf80-bb9f-4acd-95e8-18a695d59bca"))
+        # print(client.disableStoryTemplates())
