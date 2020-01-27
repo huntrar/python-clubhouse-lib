@@ -1,5 +1,5 @@
 from pyhouse.client import ClubhouseClient
-from pyhouse.type2 import Story
+from pyhouse.type import Story
 import os
 import json
 

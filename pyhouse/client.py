@@ -4,7 +4,7 @@ import requests
 import datetime
 from typing import List, Union, TypedDict
 
-from .type2 import *
+from .type import *
 
 """
 Note to future readers: The API for this library opts to define an additional None-like type, called Omit. 
@@ -52,7 +52,6 @@ class ClubhouseClient:
     # Requests #
     ############
     def get(self, endpoint: str, params: dict = None) -> requests.Response:
-        print(PrepareLocals(locals()))
         if params is None:
             params = {}
         params["token"] = self.token
