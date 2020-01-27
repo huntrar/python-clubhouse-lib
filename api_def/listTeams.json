@@ -1,0 +1,12 @@
+{
+    "title": "List Teams",
+    "identifier": "listTeams",
+    "response": "List[Team]",
+    "params": [],
+    "description": [
+        "List Teams returns a list of all Teams in the organization."
+    ],
+    "http_verb": "get",
+    "url_path": "/teams",
+    "category": "Teams"
+}

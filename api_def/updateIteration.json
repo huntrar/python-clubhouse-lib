@@ -1,0 +1,60 @@
+{
+    "title": "Update Iteration",
+    "identifier": "updateIteration",
+    "response": "Iteration",
+    "params": [
+        {
+            "name": "iteration_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Iteration.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "description",
+            "type": "str",
+            "desc": "The description of the Iteration.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "end_date",
+            "type": "str",
+            "desc": "The date this Iteration ends, e.g. 2019-07-05.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "follower_ids",
+            "type": "List[str]",
+            "desc": "An array of UUIDs for any Members you want to add as Followers.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "labels",
+            "type": "List[CreateLabelParams]",
+            "desc": "An array of Labels attached to the Iteration.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "name",
+            "type": "str",
+            "desc": "The name of this Iteration",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "start_date",
+            "type": "str",
+            "desc": "The date this Iteration begins, e.g. 2019-07-01",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [],
+    "http_verb": "put",
+    "url_path": "/iterations/{iteration_public_id}",
+    "category": "Iterations"
+}

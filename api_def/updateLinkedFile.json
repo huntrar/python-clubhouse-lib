@@ -1,0 +1,76 @@
+{
+    "title": "Update Linked File",
+    "identifier": "updateLinkedFile",
+    "response": "LinkedFile",
+    "params": [
+        {
+            "name": "linked_file_public_id",
+            "type": "int",
+            "desc": "Required. The unique identifier of the linked file.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "description",
+            "type": "str",
+            "desc": "The description of the file.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "name",
+            "type": "str",
+            "desc": "The name of the file.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "size",
+            "type": "int",
+            "desc": "The filesize, if the integration provided it.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "story_id",
+            "type": "int",
+            "desc": "The ID of the linked story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "thumbnail_url",
+            "type": "str",
+            "desc": "The URL of the thumbnail, if the integration provided it.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "type",
+            "type": "LinkedFileType",
+            "desc": "The integration type of the file (e.g. google, dropbox, box).",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "uploader_id",
+            "type": "str",
+            "desc": "The UUID of the member that uploaded the file.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "url",
+            "type": "str",
+            "desc": "The URL of linked file.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Updated Linked File allows you to update properties of a previously attached Linked-File."
+    ],
+    "http_verb": "put",
+    "url_path": "/linked-files/{linked_file_public_id}",
+    "category": "Linked-Files"
+}

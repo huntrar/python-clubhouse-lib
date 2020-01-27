@@ -1,0 +1,20 @@
+{
+    "title": "Get Project",
+    "identifier": "getProject",
+    "response": "Project",
+    "params": [
+        {
+            "name": "project_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Project.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "Get Project returns information about the selected Project."
+    ],
+    "http_verb": "get",
+    "url_path": "/projects/{project_public_id}",
+    "category": "Projects"
+}

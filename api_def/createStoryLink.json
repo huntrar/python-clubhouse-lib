@@ -1,0 +1,39 @@
+{
+    "title": "Create Story Link",
+    "identifier": "createStoryLink",
+    "response": "StoryLink",
+    "params": [
+        {
+            "name": "object_id",
+            "type": "int",
+            "desc": "Required. The ID of the object Story.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "subject_id",
+            "type": "int",
+            "desc": "Required. The ID of the subject Story.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "verb",
+            "type": "StoryLinkVerb",
+            "desc": "Required. The type of link.",
+            "required": true,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Story Links (called Story Relationships in the UI) allow you create semantic relationships between two stories. The parameters read like an active voice grammatical sentence: subject -> verb -> object.",
+        "The subject story acts on the object Story; the object story is the direct object of the sentence.",
+        "The subject story \u201cblocks\u201d, \u201cduplicates\u201d, or \u201crelates to\u201d the object story. Examples:",
+        "\u201cstory 5 blocks story 6\u201d \u2013 story 6 is now \u201cblocked\u201d until story 5 is moved to a Done workflow state.",
+        "\u201cstory 2 duplicates story 1\u201d \u2013 Story 2 represents the same body of work as Story 1 (and should probably be archived).",
+        "\u201cstory 7 relates to story 3\u201d"
+    ],
+    "http_verb": "post",
+    "url_path": "/story-links",
+    "category": "Story-Links"
+}

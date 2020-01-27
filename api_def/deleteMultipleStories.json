@@ -1,0 +1,20 @@
+{
+    "title": "Delete Multiple Stories",
+    "identifier": "deleteMultipleStories",
+    "response": "void",
+    "params": [
+        {
+            "name": "story_ids",
+            "type": "List[int]",
+            "desc": "Required. An array of IDs of Stories to delete.",
+            "required": true,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Delete Multiple Stories allows you to delete multiple archived stories at once."
+    ],
+    "http_verb": "delete",
+    "url_path": "/stories/bulk",
+    "category": "Stories"
+}

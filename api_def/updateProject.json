@@ -1,0 +1,83 @@
+{
+    "title": "Update Project",
+    "identifier": "updateProject",
+    "response": "Project",
+    "params": [
+        {
+            "name": "project_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Project.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "abbreviation",
+            "type": "str",
+            "desc": "The Project abbreviation used in Story summaries. Should be kept to 3 characters at most.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "archived",
+            "type": "bool",
+            "desc": "A true/false boolean indicating whether the Story is in archived state.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "color",
+            "type": "str",
+            "desc": "The color that represents the Project in the UI.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "days_to_thermometer",
+            "type": "int",
+            "desc": "The number of days before the thermometer appears in the Story summary.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "description",
+            "type": "str",
+            "desc": "The Project\u2019s description.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "follower_ids",
+            "type": "List[str]",
+            "desc": "An array of UUIDs for any Members you want to add as Followers.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "name",
+            "type": "str",
+            "desc": "The Project\u2019s name.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "show_thermometer",
+            "type": "bool",
+            "desc": "Configuration to enable or disable thermometers in the Story summary.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "team_id",
+            "type": "int",
+            "desc": "The ID of the team the project belongs to.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Update Project can be used to change properties of a Project."
+    ],
+    "http_verb": "put",
+    "url_path": "/projects/{project_public_id}",
+    "category": "Projects"
+}

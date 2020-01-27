@@ -1,0 +1,55 @@
+{
+    "title": "Create Milestone",
+    "identifier": "createMilestone",
+    "response": "Milestone",
+    "params": [
+        {
+            "name": "name",
+            "type": "str",
+            "desc": "Required. The name of the Milestone.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "categories",
+            "type": "List[CreateCategoryParams]",
+            "desc": "An array of IDs of Categories attached to the Milestone.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "completed_at_override",
+            "type": "datetime",
+            "desc": "A manual override for the time/date the Milestone was completed.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "description",
+            "type": "str",
+            "desc": "The Milestone\u2019s description.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "started_at_override",
+            "type": "datetime",
+            "desc": "A manual override for the time/date the Milestone was started.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "state",
+            "type": "MilestoneWorkflowState",
+            "desc": "The workflow state that the Milestone is in.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Create Milestone allows you to create a new Milestone in Clubhouse."
+    ],
+    "http_verb": "post",
+    "url_path": "/milestones",
+    "category": "Milestones"
+}

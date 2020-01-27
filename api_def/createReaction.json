@@ -1,0 +1,34 @@
+{
+    "title": "Create Reaction",
+    "identifier": "createReaction",
+    "response": "List[Reaction]",
+    "params": [
+        {
+            "name": "comment_public_id",
+            "type": "int",
+            "desc": "Required. The ID of the Comment.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "emoji",
+            "type": "str",
+            "desc": "Required. The emoji short-code to add / remove. E.g. :thumbsup::skin-tone-4:.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "story_public_id",
+            "type": "int",
+            "desc": "Required. The ID of the Story that the Comment is in.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "Create a reaction to a comment."
+    ],
+    "http_verb": "post",
+    "url_path": "/stories/{story_public_id}/comments/{comment_public_id}/reactions",
+    "category": "Stories"
+}

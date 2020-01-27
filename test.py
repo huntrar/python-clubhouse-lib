@@ -7,3 +7,4 @@ key = os.environ.get("CLUBHOUSE_API_TOKEN")
 if key is not None and key != '':        
     client = ClubhouseClient(key, debug=True)
     cat = client.listEntityTemplates()
+    print(client.listMembers())

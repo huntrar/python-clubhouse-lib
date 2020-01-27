@@ -1,0 +1,20 @@
+{
+    "title": "Get Repository",
+    "identifier": "getRepository",
+    "response": "Repository",
+    "params": [
+        {
+            "name": "repo_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Repository.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "Get Repository returns information about the selected Repository."
+    ],
+    "http_verb": "get",
+    "url_path": "/repositories/{repo_public_id}",
+    "category": "Repositories"
+}

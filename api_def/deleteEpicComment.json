@@ -1,0 +1,27 @@
+{
+    "title": "Delete Epic Comment",
+    "identifier": "deleteEpicComment",
+    "response": "void",
+    "params": [
+        {
+            "name": "comment_public_id",
+            "type": "int",
+            "desc": "Required. The ID of the Comment.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "epic_public_id",
+            "type": "int",
+            "desc": "Required. The ID of the associated Epic.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "This endpoint allows you to delete a Comment from an Epic."
+    ],
+    "http_verb": "delete",
+    "url_path": "/epics/{epic_public_id}/comments/{comment_public_id}",
+    "category": "Epics"
+}

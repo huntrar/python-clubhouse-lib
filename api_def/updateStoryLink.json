@@ -1,0 +1,27 @@
+{
+    "title": "Update Story Link",
+    "identifier": "updateStoryLink",
+    "response": "StoryLink",
+    "params": [
+        {
+            "name": "story_link_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Story Link.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "verb",
+            "type": "StoryLinkVerb",
+            "desc": "Required. The type of link.",
+            "required": true,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Update the relationship for the Story Link."
+    ],
+    "http_verb": "put",
+    "url_path": "/story-links/{story_link_public_id}",
+    "category": "Story-Links"
+}

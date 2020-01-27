@@ -1,0 +1,10 @@
+{
+    "title": "List Iterations",
+    "identifier": "listIterations",
+    "response": "List[IterationSlim]",
+    "params": [],
+    "description": [],
+    "http_verb": "get",
+    "url_path": "/iterations",
+    "category": "Iterations"
+}

@@ -1,0 +1,20 @@
+{
+    "title": "Delete File",
+    "identifier": "deleteFile",
+    "response": "void",
+    "params": [
+        {
+            "name": "file_public_id",
+            "type": "int",
+            "desc": "Required. The File\u2019s unique ID.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "Delete File can be used to delete any previously attached File."
+    ],
+    "http_verb": "delete",
+    "url_path": "/files/{file_public_id}",
+    "category": "Files"
+}

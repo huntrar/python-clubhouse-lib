@@ -1,0 +1,41 @@
+{
+    "title": "Update Category",
+    "identifier": "updateCategory",
+    "response": "Category",
+    "params": [
+        {
+            "name": "category_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Category you wish to update.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "archived",
+            "type": "bool",
+            "desc": "A true/false boolean indicating if the Category has been archived.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "color",
+            "type": "Optional[str]",
+            "desc": "The hex color to be displayed with the Category (for example, \u201c#ff0000\u201d).",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "name",
+            "type": "str",
+            "desc": "The new name of the Category.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Update Category allows you to replace a Category name with another name. If you try to name a Category something that already exists, you will receive a 422 response."
+    ],
+    "http_verb": "put",
+    "url_path": "/categories/{category_public_id}",
+    "category": "Categories"
+}

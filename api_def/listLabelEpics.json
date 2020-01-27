@@ -1,0 +1,20 @@
+{
+    "title": "List Label Epics",
+    "identifier": "listLabelEpics",
+    "response": "List[EpicSlim]",
+    "params": [
+        {
+            "name": "label_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Label.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "List all of the Epics with the Label."
+    ],
+    "http_verb": "get",
+    "url_path": "/labels/{label_public_id}/epics",
+    "category": "Labels"
+}

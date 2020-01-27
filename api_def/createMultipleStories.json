@@ -1,0 +1,20 @@
+{
+    "title": "Create Multiple Stories",
+    "identifier": "createMultipleStories",
+    "response": "List[StorySlim]",
+    "params": [
+        {
+            "name": "stories",
+            "type": "List[CreateStoryParams]",
+            "desc": "Required. An array of stories to be created.",
+            "required": true,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Create Multiple Stories allows you to create multiple stories in a single request using the same syntax as Create Story."
+    ],
+    "http_verb": "post",
+    "url_path": "/stories/bulk",
+    "category": "Stories"
+}

@@ -1,0 +1,27 @@
+{
+    "title": "Search",
+    "identifier": "search",
+    "response": "SearchResults",
+    "params": [
+        {
+            "name": "query",
+            "type": "str",
+            "desc": "Required. See our help center article on search operators",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "page_size",
+            "type": "int",
+            "desc": "The number of search results to include in a page. Minimum of 1 and maximum of 25.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Search lets you search Epics and Stories based on desired parameters. Since ordering of the results can change over time (due to search ranking decay, new Epics and Stories being created), the next value from the previous response can be used as the path and query string for the next page to ensure stable ordering."
+    ],
+    "http_verb": "get",
+    "url_path": "/search",
+    "category": "Search"
+}

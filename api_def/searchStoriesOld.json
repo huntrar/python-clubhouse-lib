@@ -1,0 +1,188 @@
+{
+    "title": "Search Stories (Old)",
+    "identifier": "searchStoriesOld",
+    "response": "List[StorySlim]",
+    "params": [
+        {
+            "name": "archived",
+            "type": "bool",
+            "desc": "A true/false boolean indicating whether the Story is in archived state.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "completed_at_end",
+            "type": "datetime",
+            "desc": "Stories should have been completed before this date.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "completed_at_start",
+            "type": "datetime",
+            "desc": "Stories should have been competed after this date.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "created_at_end",
+            "type": "datetime",
+            "desc": "Stories should have been created before this date.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "created_at_start",
+            "type": "datetime",
+            "desc": "Stories should have been created after this date.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "deadline_end",
+            "type": "datetime",
+            "desc": "Stories should have a deadline before this date.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "deadline_start",
+            "type": "datetime",
+            "desc": "Stories should have a deadline after this date.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "epic_id",
+            "type": "Optional[int]",
+            "desc": "The Epic IDs that may be associated with the Stories.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "epic_ids",
+            "type": "List[int]",
+            "desc": "The Epic IDs that may be associated with the Stories.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "estimate",
+            "type": "int",
+            "desc": "The number of estimate points associate with the Stories.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "external_id",
+            "type": "str",
+            "desc": "An ID or URL that references an external resource. Useful during imports.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "iteration_id",
+            "type": "Optional[int]",
+            "desc": "The Iteration ID that may be associated with the Stories.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "iteration_ids",
+            "type": "List[int]",
+            "desc": "The Iteration IDs that may be associated with the Stories.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "label_ids",
+            "type": "List[int]",
+            "desc": "The Label IDs that may be associated with the Stories.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "label_name",
+            "type": "str",
+            "desc": "The name of any associated Labels.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "owner_id",
+            "type": "Optional[str]",
+            "desc": "An array of UUIDs for any Users who may be Owners of the Stories.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "owner_ids",
+            "type": "List[str]",
+            "desc": "An array of UUIDs for any Users who may be Owners of the Stories.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "project_id",
+            "type": "int",
+            "desc": "The IDs for the Projects the Stories may be assigned to.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "project_ids",
+            "type": "List[int]",
+            "desc": "The IDs for the Projects the Stories may be assigned to.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "requested_by_id",
+            "type": "str",
+            "desc": "The UUID of any Users who may have requested the Stories.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "story_type",
+            "type": "StoryType",
+            "desc": "The type of Stories that you want returned.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "updated_at_end",
+            "type": "datetime",
+            "desc": "Stories should have been updated before this date.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "updated_at_start",
+            "type": "datetime",
+            "desc": "Stories should have been updated after this date.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "workflow_state_id",
+            "type": "int",
+            "desc": "The unique IDs of the specific Workflow States that the Stories should be in.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "workflow_state_types",
+            "type": "List[WorkflowStateTypes]",
+            "desc": "The type of Workflow State the Stories may be in.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Search Stories lets you search Stories based on desired parameters."
+    ],
+    "http_verb": "post",
+    "url_path": "/stories/search",
+    "category": "Stories"
+}

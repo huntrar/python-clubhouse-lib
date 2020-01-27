@@ -1,0 +1,76 @@
+{
+    "title": "Create Linked File",
+    "identifier": "createLinkedFile",
+    "response": "LinkedFile",
+    "params": [
+        {
+            "name": "name",
+            "type": "str",
+            "desc": "Required. The name of the file.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "type",
+            "type": "LinkedFileType",
+            "desc": "Required. The integration type of the file (e.g. google, dropbox, box).",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "url",
+            "type": "str",
+            "desc": "Required. The URL of linked file.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "content_type",
+            "type": "str",
+            "desc": "The content type of the image (e.g. txt/plain).",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "description",
+            "type": "str",
+            "desc": "The description of the file.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "size",
+            "type": "int",
+            "desc": "The filesize, if the integration provided it.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "story_id",
+            "type": "int",
+            "desc": "The ID of the linked story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "thumbnail_url",
+            "type": "str",
+            "desc": "The URL of the thumbnail, if the integration provided it.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "uploader_id",
+            "type": "str",
+            "desc": "The UUID of the member that uploaded the file.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Create Linked File allows you to create a new Linked File in Clubhouse."
+    ],
+    "http_verb": "post",
+    "url_path": "/linked-files",
+    "category": "Linked-Files"
+}

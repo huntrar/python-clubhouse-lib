@@ -1,0 +1,20 @@
+{
+    "title": "Get Entity Template",
+    "identifier": "getEntityTemplate",
+    "response": "EntityTemplate",
+    "params": [
+        {
+            "name": "entity_template_public_id",
+            "type": "str",
+            "desc": "Required. The unique ID of the entity template.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "Get Entity Template returns information about a given entity template."
+    ],
+    "http_verb": "get",
+    "url_path": "/entity-templates/{entity_template_public_id}",
+    "category": "Entity-Templates"
+}

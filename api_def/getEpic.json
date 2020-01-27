@@ -1,0 +1,20 @@
+{
+    "title": "Get Epic",
+    "identifier": "getEpic",
+    "response": "Epic",
+    "params": [
+        {
+            "name": "epic_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Epic.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "Get Epic returns information about the selected Epic."
+    ],
+    "http_verb": "get",
+    "url_path": "/epics/{epic_public_id}",
+    "category": "Epics"
+}

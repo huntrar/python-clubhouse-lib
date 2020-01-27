@@ -1,0 +1,20 @@
+{
+    "title": "Delete Project",
+    "identifier": "deleteProject",
+    "response": "void",
+    "params": [
+        {
+            "name": "project_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Project.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "Delete Project can be used to delete a Project. Projects can only be deleted if all associated Stories are moved or deleted. In the case that the Project cannot be deleted, you will receive a 422 response."
+    ],
+    "http_verb": "delete",
+    "url_path": "/projects/{project_public_id}",
+    "category": "Projects"
+}

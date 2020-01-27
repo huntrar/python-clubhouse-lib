@@ -1,0 +1,12 @@
+{
+    "title": "List Files",
+    "identifier": "listFiles",
+    "response": "List[File]",
+    "params": [],
+    "description": [
+        "List Files returns a list of all Files and related attributes in your Clubhouse."
+    ],
+    "http_verb": "get",
+    "url_path": "/files",
+    "category": "Files"
+}

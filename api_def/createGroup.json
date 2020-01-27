@@ -1,0 +1,46 @@
+{
+    "title": "Create Group",
+    "identifier": "createGroup",
+    "response": "Group",
+    "params": [
+        {
+            "name": "mention_name",
+            "type": "str",
+            "desc": "Required. The mention name of this Group.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "name",
+            "type": "str",
+            "desc": "Required. The name of this Group.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "description",
+            "type": "str",
+            "desc": "The description of the Group.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "display_icon_id",
+            "type": "str",
+            "desc": "The Icon id for the avatar of this Group.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "member_ids",
+            "type": "List[str]",
+            "desc": "The Member ids to add to this Group.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [],
+    "http_verb": "post",
+    "url_path": "/groups",
+    "category": "Groups"
+}

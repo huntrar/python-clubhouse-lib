@@ -1,0 +1,12 @@
+{
+    "title": "List Milestones",
+    "identifier": "listMilestones",
+    "response": "List[Milestone]",
+    "params": [],
+    "description": [
+        "List Milestones returns a list of all Milestones and their attributes."
+    ],
+    "http_verb": "get",
+    "url_path": "/milestones",
+    "category": "Milestones"
+}

@@ -1,0 +1,12 @@
+{
+    "title": "List Epics",
+    "identifier": "listEpics",
+    "response": "List[EpicSlim]",
+    "params": [],
+    "description": [
+        "List Epics returns a list of all Epics and their attributes."
+    ],
+    "http_verb": "get",
+    "url_path": "/epics",
+    "category": "Epics"
+}

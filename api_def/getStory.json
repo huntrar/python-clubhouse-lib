@@ -1,0 +1,20 @@
+{
+    "title": "Get Story",
+    "identifier": "getStory",
+    "response": "Story",
+    "params": [
+        {
+            "name": "story_public_id",
+            "type": "int",
+            "desc": "Required. The ID of the Story.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "Get Story returns information about a chosen Story."
+    ],
+    "http_verb": "get",
+    "url_path": "/stories/{story_public_id}",
+    "category": "Stories"
+}

@@ -1,0 +1,12 @@
+{
+    "title": "Disable Story Templates",
+    "identifier": "disableStoryTemplates",
+    "response": "void",
+    "params": [],
+    "description": [
+        "Disables the Story Template feature for the given Organization."
+    ],
+    "http_verb": "put",
+    "url_path": "/entity-templates/disable",
+    "category": "Entity-Templates"
+}

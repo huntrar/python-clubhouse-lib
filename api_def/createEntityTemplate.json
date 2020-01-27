@@ -1,0 +1,34 @@
+{
+    "title": "Create Entity Template",
+    "identifier": "createEntityTemplate",
+    "response": "EntityTemplate",
+    "params": [
+        {
+            "name": "name",
+            "type": "str",
+            "desc": "Required. The name of the new entity template",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "story_contents",
+            "type": "CreateStoryContents",
+            "desc": "Required. A map of story attributes this template populates.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "author_id",
+            "type": "str",
+            "desc": "The id of the user creating this template.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Create a new entity template for your organization."
+    ],
+    "http_verb": "post",
+    "url_path": "/entity-templates",
+    "category": "Entity-Templates"
+}

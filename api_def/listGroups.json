@@ -1,0 +1,10 @@
+{
+    "title": "List Groups",
+    "identifier": "listGroups",
+    "response": "List[Group]",
+    "params": [],
+    "description": [],
+    "http_verb": "get",
+    "url_path": "/groups",
+    "category": "Groups"
+}

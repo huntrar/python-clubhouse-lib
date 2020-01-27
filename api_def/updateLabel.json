@@ -1,0 +1,48 @@
+{
+    "title": "Update Label",
+    "identifier": "updateLabel",
+    "response": "Label",
+    "params": [
+        {
+            "name": "label_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Label you wish to update.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "archived",
+            "type": "bool",
+            "desc": "A true/false boolean indicating if the Label has been archived.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "color",
+            "type": "Optional[str]",
+            "desc": "The hex color to be displayed with the Label (for example, \u201c#ff0000\u201d).",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "description",
+            "type": "str",
+            "desc": "The new description of the label.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "name",
+            "type": "str",
+            "desc": "The new name of the label.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Update Label allows you to replace a Label name with another name. If you try to name a Label something that already exists, you will receive a 422 response."
+    ],
+    "http_verb": "put",
+    "url_path": "/labels/{label_public_id}",
+    "category": "Labels"
+}

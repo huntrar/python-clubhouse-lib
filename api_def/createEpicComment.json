@@ -1,0 +1,55 @@
+{
+    "title": "Create Epic Comment",
+    "identifier": "createEpicComment",
+    "response": "ThreadedComment",
+    "params": [
+        {
+            "name": "epic_public_id",
+            "type": "int",
+            "desc": "Required. The ID of the associated Epic.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "text",
+            "type": "str",
+            "desc": "Required. The comment text.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "author_id",
+            "type": "str",
+            "desc": "The Member ID of the Comment\u2019s author. Defaults to the user identified by the API token.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "created_at",
+            "type": "datetime",
+            "desc": "Defaults to the time/date the comment is created, but can be set to reflect another date.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "external_id",
+            "type": "str",
+            "desc": "This field can be set to another unique ID. In the case that the comment has been imported from another tool, the ID in the other tool can be indicated here.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "updated_at",
+            "type": "datetime",
+            "desc": "Defaults to the time/date the comment is last updated, but can be set to reflect another date.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "This endpoint allows you to create a threaded Comment on an Epic."
+    ],
+    "http_verb": "post",
+    "url_path": "/epics/{epic_public_id}/comments",
+    "category": "Epics"
+}

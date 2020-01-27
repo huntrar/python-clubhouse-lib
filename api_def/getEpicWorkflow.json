@@ -1,0 +1,12 @@
+{
+    "title": "Get Epic Workflow",
+    "identifier": "getEpicWorkflow",
+    "response": "EpicWorkflow",
+    "params": [],
+    "description": [
+        "Get Epic Workflow returns the Epic Workflow for the organization."
+    ],
+    "http_verb": "get",
+    "url_path": "/epic-workflow",
+    "category": "Epic-Workflow"
+}

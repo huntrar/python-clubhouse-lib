@@ -1,0 +1,20 @@
+{
+    "title": "Get File",
+    "identifier": "getFile",
+    "response": "File",
+    "params": [
+        {
+            "name": "file_public_id",
+            "type": "int",
+            "desc": "Required. The File\u2019s unique ID.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "Get File returns information about the selected File."
+    ],
+    "http_verb": "get",
+    "url_path": "/files/{file_public_id}",
+    "category": "Files"
+}

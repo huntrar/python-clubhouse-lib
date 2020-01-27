@@ -1,0 +1,41 @@
+{
+    "title": "Create Category",
+    "identifier": "createCategory",
+    "response": "Category",
+    "params": [
+        {
+            "name": "name",
+            "type": "str",
+            "desc": "Required. The name of the new Category.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "type",
+            "type": "CategoryType",
+            "desc": "Required. The type of entity this Category is associated with; currently Milestone is the only type of Category.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "color",
+            "type": "str",
+            "desc": "The hex color to be displayed with the Category (for example, \u201c#ff0000\u201d).",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "external_id",
+            "type": "str",
+            "desc": "This field can be set to another unique ID. In the case that the Category has been imported from another tool, the ID in the other tool can be indicated here.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Create Category allows you to create a new Category in Clubhouse."
+    ],
+    "http_verb": "post",
+    "url_path": "/categories",
+    "category": "Categories"
+}

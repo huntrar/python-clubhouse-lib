@@ -1,0 +1,12 @@
+{
+    "title": "Enable Story Templates",
+    "identifier": "enableStoryTemplates",
+    "response": "void",
+    "params": [],
+    "description": [
+        "Enables the Story Template feature for the given Organization."
+    ],
+    "http_verb": "put",
+    "url_path": "/entity-templates/enable",
+    "category": "Entity-Templates"
+}

@@ -1,0 +1,125 @@
+{
+    "title": "Update Epic",
+    "identifier": "updateEpic",
+    "response": "Epic",
+    "params": [
+        {
+            "name": "epic_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Epic.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "after_id",
+            "type": "int",
+            "desc": "The ID of the Epic we want to move this Epic after.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "archived",
+            "type": "bool",
+            "desc": "A true/false boolean indicating whether the Epic is in archived state.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "before_id",
+            "type": "int",
+            "desc": "The ID of the Epic we want to move this Epic before.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "completed_at_override",
+            "type": "Optional[datetime]",
+            "desc": "A manual override for the time/date the Epic was completed.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "deadline",
+            "type": "Optional[datetime]",
+            "desc": "The Epic\u2019s deadline.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "description",
+            "type": "str",
+            "desc": "The Epic\u2019s description.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "epic_state_id",
+            "type": "int",
+            "desc": "The ID of the Epic State.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "follower_ids",
+            "type": "List[str]",
+            "desc": "An array of UUIDs for any Members you want to add as Followers on this Epic.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "labels",
+            "type": "List[CreateLabelParams]",
+            "desc": "An array of Labels attached to the Epic.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "milestone_id",
+            "type": "Optional[int]",
+            "desc": "The ID of the Milestone this Epic is related to.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "name",
+            "type": "str",
+            "desc": "The Epic\u2019s name.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "owner_ids",
+            "type": "List[str]",
+            "desc": "An array of UUIDs for any members you want to add as Owners on this Epic.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "requested_by_id",
+            "type": "str",
+            "desc": "The ID of the member that requested the epic.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "started_at_override",
+            "type": "Optional[datetime]",
+            "desc": "A manual override for the time/date the Epic was started.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "state",
+            "type": "MilestoneWorkflowState",
+            "desc": "Deprecated The Epic\u2019s state (to do, in progress, or done); will be ignored when epic_state_id is set.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Update Epic can be used to update numerous fields in the Epic. The only required parameter is Epic ID, which can be found in the Clubhouse UI."
+    ],
+    "http_verb": "put",
+    "url_path": "/epics/{epic_public_id}",
+    "category": "Epics"
+}

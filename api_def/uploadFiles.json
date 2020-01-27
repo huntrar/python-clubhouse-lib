@@ -1,0 +1,12 @@
+{
+    "title": "Upload Files",
+    "identifier": "uploadFiles",
+    "response": "List[File]",
+    "params": [],
+    "description": [
+        "Upload one or more Files, which can then be associated to a Story Description, Story Comment, or Epic Comment."
+    ],
+    "http_verb": "post",
+    "url_path": "/files",
+    "category": "Files"
+}

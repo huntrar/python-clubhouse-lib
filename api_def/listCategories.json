@@ -1,0 +1,12 @@
+{
+    "title": "List Categories",
+    "identifier": "listCategories",
+    "response": "List[Category]",
+    "params": [],
+    "description": [
+        "List Categories returns a list of all Categories and their attributes."
+    ],
+    "http_verb": "get",
+    "url_path": "/categories",
+    "category": "Categories"
+}

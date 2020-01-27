@@ -1,0 +1,62 @@
+{
+    "title": "Create Task",
+    "identifier": "createTask",
+    "response": "Task",
+    "params": [
+        {
+            "name": "description",
+            "type": "str",
+            "desc": "Required. The Task description.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "story_public_id",
+            "type": "int",
+            "desc": "Required. The ID of the Story that the Task will be in.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "complete",
+            "type": "bool",
+            "desc": "True/false boolean indicating whether the Task is completed. Defaults to false.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "created_at",
+            "type": "datetime",
+            "desc": "Defaults to the time/date the Task is created but can be set to reflect another creation time/date.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "external_id",
+            "type": "str",
+            "desc": "This field can be set to another unique ID. In the case that the Task has been imported from another tool, the ID in the other tool can be indicated here.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "owner_ids",
+            "type": "List[str]",
+            "desc": "An array of UUIDs for any members you want to add as Owners on this new Task.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "updated_at",
+            "type": "datetime",
+            "desc": "Defaults to the time/date the Task is created in Clubhouse but can be set to reflect another time/date.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Create Task is used to create a new task in a Story."
+    ],
+    "http_verb": "post",
+    "url_path": "/stories/{story_public_id}/tasks",
+    "category": "Stories"
+}

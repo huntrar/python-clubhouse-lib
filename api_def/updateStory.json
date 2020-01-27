@@ -1,0 +1,181 @@
+{
+    "title": "Update Story",
+    "identifier": "updateStory",
+    "response": "Story",
+    "params": [
+        {
+            "name": "story_public_id",
+            "type": "int",
+            "desc": "Required. The unique identifier of this story.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "after_id",
+            "type": "int",
+            "desc": "The ID of the story we want to move this story after.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "archived",
+            "type": "bool",
+            "desc": "True if the story is archived, otherwise false.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "before_id",
+            "type": "int",
+            "desc": "The ID of the story we want to move this story before.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "branch_ids",
+            "type": "List[int]",
+            "desc": "An array of IDs of Branches attached to the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "commit_ids",
+            "type": "List[int]",
+            "desc": "An array of IDs of Commits attached to the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "completed_at_override",
+            "type": "Optional[datetime]",
+            "desc": "A manual override for the time/date the Story was completed.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "deadline",
+            "type": "Optional[datetime]",
+            "desc": "The due date of the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "description",
+            "type": "str",
+            "desc": "The description of the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "epic_id",
+            "type": "Optional[int]",
+            "desc": "The ID of the epic the story belongs to.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "estimate",
+            "type": "Optional[int]",
+            "desc": "The numeric point estimate of the story. Can also be null, which means unestimated.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "file_ids",
+            "type": "List[int]",
+            "desc": "An array of IDs of files attached to the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "follower_ids",
+            "type": "List[str]",
+            "desc": "An array of UUIDs of the followers of this story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "iteration_id",
+            "type": "Optional[int]",
+            "desc": "The ID of the iteration the story belongs to.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "labels",
+            "type": "List[CreateLabelParams]",
+            "desc": "An array of labels attached to the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "linked_file_ids",
+            "type": "List[int]",
+            "desc": "An array of IDs of linked files attached to the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "name",
+            "type": "str",
+            "desc": "The title of the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "owner_ids",
+            "type": "List[str]",
+            "desc": "An array of UUIDs of the owners of this story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "project_id",
+            "type": "int",
+            "desc": "The ID of the project the story belongs to.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "pull_request_ids",
+            "type": "List[int]",
+            "desc": "An array of IDs of Pull/Merge Requests attached to the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "requested_by_id",
+            "type": "str",
+            "desc": "The ID of the member that requested the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "started_at_override",
+            "type": "Optional[datetime]",
+            "desc": "A manual override for the time/date the Story was started.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "story_type",
+            "type": "StoryType",
+            "desc": "The type of story (feature, bug, chore).",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "workflow_state_id",
+            "type": "int",
+            "desc": "The ID of the workflow state the story is currently in.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Update Story can be used to update Story properties."
+    ],
+    "http_verb": "put",
+    "url_path": "/stories/{story_public_id}",
+    "category": "Stories"
+}

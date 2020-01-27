@@ -1,0 +1,34 @@
+{
+    "title": "Update Epic Comment",
+    "identifier": "updateEpicComment",
+    "response": "ThreadedComment",
+    "params": [
+        {
+            "name": "comment_public_id",
+            "type": "int",
+            "desc": "Required. The ID of the Comment.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "epic_public_id",
+            "type": "int",
+            "desc": "Required. The ID of the associated Epic.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "text",
+            "type": "str",
+            "desc": "Required. The updated comment text.",
+            "required": true,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "This endpoint allows you to update a threaded Comment on an Epic."
+    ],
+    "http_verb": "put",
+    "url_path": "/epics/{epic_public_id}/comments/{comment_public_id}",
+    "category": "Epics"
+}

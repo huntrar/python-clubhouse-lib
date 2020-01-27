@@ -1,0 +1,41 @@
+{
+    "title": "Create Label",
+    "identifier": "createLabel",
+    "response": "Label",
+    "params": [
+        {
+            "name": "name",
+            "type": "str",
+            "desc": "Required. The name of the new Label.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "color",
+            "type": "str",
+            "desc": "The hex color to be displayed with the Label (for example, \u201c#ff0000\u201d).",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "description",
+            "type": "str",
+            "desc": "The description of the new Label.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "external_id",
+            "type": "str",
+            "desc": "This field can be set to another unique ID. In the case that the Label has been imported from another tool, the ID in the other tool can be indicated here.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Create Label allows you to create a new Label in Clubhouse."
+    ],
+    "http_verb": "post",
+    "url_path": "/labels",
+    "category": "Labels"
+}

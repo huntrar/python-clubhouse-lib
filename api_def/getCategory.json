@@ -1,0 +1,20 @@
+{
+    "title": "Get Category",
+    "identifier": "getCategory",
+    "response": "Category",
+    "params": [
+        {
+            "name": "category_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Category.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "Get Category returns information about the selected Category."
+    ],
+    "http_verb": "get",
+    "url_path": "/categories/{category_public_id}",
+    "category": "Categories"
+}

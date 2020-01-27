@@ -1,0 +1,139 @@
+{
+    "title": "Update Multiple Stories",
+    "identifier": "updateMultipleStories",
+    "response": "List[StorySlim]",
+    "params": [
+        {
+            "name": "story_ids",
+            "type": "List[int]",
+            "desc": "Required. The unique IDs of the Stories you wish to update.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "after_id",
+            "type": "int",
+            "desc": "The ID of the story that the stories are to be moved below.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "archived",
+            "type": "bool",
+            "desc": "If the Stories should be archived or not.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "before_id",
+            "type": "int",
+            "desc": "The ID of the story that the stories are to be moved before.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "deadline",
+            "type": "Optional[datetime]",
+            "desc": "The due date of the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "epic_id",
+            "type": "Optional[int]",
+            "desc": "The ID of the epic the story belongs to.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "estimate",
+            "type": "Optional[int]",
+            "desc": "The numeric point estimate of the story. Can also be null, which means unestimated.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "follower_ids_add",
+            "type": "List[str]",
+            "desc": "The UUIDs of the new followers to be added.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "follower_ids_remove",
+            "type": "List[str]",
+            "desc": "The UUIDs of the followers to be removed.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "iteration_id",
+            "type": "Optional[int]",
+            "desc": "The ID of the iteration the story belongs to.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "labels_add",
+            "type": "List[CreateLabelParams]",
+            "desc": "An array of labels to be added.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "labels_remove",
+            "type": "List[CreateLabelParams]",
+            "desc": "An array of labels to be removed.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "owner_ids_add",
+            "type": "List[str]",
+            "desc": "The UUIDs of the new owners to be added.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "owner_ids_remove",
+            "type": "List[str]",
+            "desc": "The UUIDs of the owners to be removed.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "project_id",
+            "type": "int",
+            "desc": "The ID of the Project the Stories should belong to.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "requested_by_id",
+            "type": "str",
+            "desc": "The ID of the member that requested the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "story_type",
+            "type": "StoryType",
+            "desc": "The type of story (feature, bug, chore).",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "workflow_state_id",
+            "type": "int",
+            "desc": "The ID of the workflow state the story is currently in.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Update Multiple Stories allows you to make changes to numerous stories at once."
+    ],
+    "http_verb": "put",
+    "url_path": "/stories/bulk",
+    "category": "Stories"
+}

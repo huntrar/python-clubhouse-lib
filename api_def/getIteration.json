@@ -1,0 +1,18 @@
+{
+    "title": "Get Iteration",
+    "identifier": "getIteration",
+    "response": "Iteration",
+    "params": [
+        {
+            "name": "iteration_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Iteration.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [],
+    "http_verb": "get",
+    "url_path": "/iterations/{iteration_public_id}",
+    "category": "Iterations"
+}

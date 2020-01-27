@@ -1,0 +1,62 @@
+{
+    "title": "Update Task",
+    "identifier": "updateTask",
+    "response": "Task",
+    "params": [
+        {
+            "name": "story_public_id",
+            "type": "int",
+            "desc": "Required. The unique identifier of the parent Story.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "task_public_id",
+            "type": "int",
+            "desc": "Required. The unique identifier of the Task you wish to update.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "after_id",
+            "type": "int",
+            "desc": "Move task after this task ID.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "before_id",
+            "type": "int",
+            "desc": "Move task before this task ID.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "complete",
+            "type": "bool",
+            "desc": "A true/false boolean indicating whether the task is complete.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "description",
+            "type": "str",
+            "desc": "The Task\u2019s description.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "owner_ids",
+            "type": "List[str]",
+            "desc": "An array of UUIDs of the owners of this story.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Update Task can be used to update Task properties."
+    ],
+    "http_verb": "put",
+    "url_path": "/stories/{story_public_id}/tasks/{task_public_id}",
+    "category": "Stories"
+}

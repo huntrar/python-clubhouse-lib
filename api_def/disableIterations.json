@@ -1,0 +1,12 @@
+{
+    "title": "Disable Iterations",
+    "identifier": "disableIterations",
+    "response": "void",
+    "params": [],
+    "description": [
+        "Disables Iterations for the current workspace"
+    ],
+    "http_verb": "put",
+    "url_path": "/iterations/disable",
+    "category": "Iterations"
+}

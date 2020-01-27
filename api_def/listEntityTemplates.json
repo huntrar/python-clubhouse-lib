@@ -1,0 +1,12 @@
+{
+    "title": "List Entity Templates",
+    "identifier": "listEntityTemplates",
+    "response": "List[EntityTemplate]",
+    "params": [],
+    "description": [
+        "List all the entity templates for an organization."
+    ],
+    "http_verb": "get",
+    "url_path": "/entity-templates",
+    "category": "Entity-Templates"
+}

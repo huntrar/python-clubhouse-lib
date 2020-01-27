@@ -1,0 +1,12 @@
+{
+    "title": "Get Current Member Info",
+    "identifier": "getCurrentMemberInfo",
+    "response": "MemberInfo",
+    "params": [],
+    "description": [
+        "Returns information about the authenticated member."
+    ],
+    "http_verb": "get",
+    "url_path": "/member",
+    "category": "Member"
+}

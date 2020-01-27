@@ -1,0 +1,90 @@
+{
+    "title": "Create Project",
+    "identifier": "createProject",
+    "response": "Project",
+    "params": [
+        {
+            "name": "name",
+            "type": "str",
+            "desc": "Required. The name of the Project.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "team_id",
+            "type": "int",
+            "desc": "Required. The ID of the team the project belongs to.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "abbreviation",
+            "type": "str",
+            "desc": "The Project abbreviation used in Story summaries. Should be kept to 3 characters at most.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "color",
+            "type": "str",
+            "desc": "The color you wish to use for the Project in the system.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "created_at",
+            "type": "datetime",
+            "desc": "Defaults to the time/date it is created but can be set to reflect another date.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "description",
+            "type": "str",
+            "desc": "The Project description.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "external_id",
+            "type": "str",
+            "desc": "This field can be set to another unique ID. In the case that the Project has been imported from another tool, the ID in the other tool can be indicated here.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "follower_ids",
+            "type": "List[str]",
+            "desc": "An array of UUIDs for any members you want to add as Owners on this new Epic.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "iteration_length",
+            "type": "int",
+            "desc": "The number of weeks per iteration in this Project.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "start_time",
+            "type": "datetime",
+            "desc": "The date at which the Project was started.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "updated_at",
+            "type": "datetime",
+            "desc": "Defaults to the time/date it is created but can be set to reflect another date.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Create Project is used to create a new Clubhouse Project."
+    ],
+    "http_verb": "post",
+    "url_path": "/projects",
+    "category": "Projects"
+}

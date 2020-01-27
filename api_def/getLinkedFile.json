@@ -1,0 +1,20 @@
+{
+    "title": "Get Linked File",
+    "identifier": "getLinkedFile",
+    "response": "LinkedFile",
+    "params": [
+        {
+            "name": "linked_file_public_id",
+            "type": "int",
+            "desc": "Required. The unique identifier of the linked file.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "Get File returns information about the selected Linked File."
+    ],
+    "http_verb": "get",
+    "url_path": "/linked-files/{linked_file_public_id}",
+    "category": "Linked-Files"
+}

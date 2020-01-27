@@ -1,0 +1,12 @@
+{
+    "title": "List Workflows",
+    "identifier": "listWorkflows",
+    "response": "List[Workflow]",
+    "params": [],
+    "description": [
+        "List Workflows returns a list of all Workflows in the organization."
+    ],
+    "http_verb": "get",
+    "url_path": "/workflows",
+    "category": "Workflows"
+}

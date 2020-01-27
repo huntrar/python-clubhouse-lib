@@ -1,0 +1,60 @@
+{
+    "title": "Update Group",
+    "identifier": "updateGroup",
+    "response": "Group",
+    "params": [
+        {
+            "name": "group_public_id",
+            "type": "str",
+            "desc": "Required. The unique ID of the Group.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "archived",
+            "type": "Optional[bool]",
+            "desc": "Whether or not this Group is archived.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "description",
+            "type": "str",
+            "desc": "The description of this Group.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "display_icon_id",
+            "type": "Optional[str]",
+            "desc": "The Icon id for the avatar of this Group.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "member_ids",
+            "type": "List[str]",
+            "desc": "The Member ids to add to this Group.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "mention_name",
+            "type": "str",
+            "desc": "The mention name of this Group.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "name",
+            "type": "str",
+            "desc": "The name of this Group.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [],
+    "http_verb": "put",
+    "url_path": "/groups/{group_public_id}",
+    "category": "Groups"
+}

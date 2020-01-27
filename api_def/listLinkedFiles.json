@@ -1,0 +1,12 @@
+{
+    "title": "List Linked Files",
+    "identifier": "listLinkedFiles",
+    "response": "List[LinkedFile]",
+    "params": [],
+    "description": [
+        "List Linked Files returns a list of all Linked-Files and their attributes."
+    ],
+    "http_verb": "get",
+    "url_path": "/linked-files",
+    "category": "Linked-Files"
+}

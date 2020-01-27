@@ -1,0 +1,62 @@
+{
+    "title": "Update File",
+    "identifier": "updateFile",
+    "response": "File",
+    "params": [
+        {
+            "name": "file_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID assigned to the file in Clubhouse.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "created_at",
+            "type": "datetime",
+            "desc": "The time/date that the file was uploaded.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "description",
+            "type": "str",
+            "desc": "The description of the file.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "external_id",
+            "type": "str",
+            "desc": "An additional ID that you may wish to assign to the file.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "name",
+            "type": "str",
+            "desc": "The name of the file.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "updated_at",
+            "type": "datetime",
+            "desc": "The time/date that the file was last updated.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "uploader_id",
+            "type": "str",
+            "desc": "The unique ID assigned to the Member who uploaded the file to Clubhouse.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Update File can used to update the properties of a file uploaded to Clubhouse."
+    ],
+    "http_verb": "put",
+    "url_path": "/files/{file_public_id}",
+    "category": "Files"
+}

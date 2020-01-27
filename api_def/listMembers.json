@@ -1,0 +1,20 @@
+{
+    "title": "List Members",
+    "identifier": "listMembers",
+    "response": "List[Member]",
+    "params": [
+        {
+            "name": "org-public-id",
+            "type": "str",
+            "desc": "The unique ID of the Organization to limit the list to.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "List Members returns information about members of the organization."
+    ],
+    "http_verb": "get",
+    "url_path": "/members",
+    "category": "Members"
+}

@@ -1,0 +1,118 @@
+{
+    "title": "Create Epic",
+    "identifier": "createEpic",
+    "response": "Epic",
+    "params": [
+        {
+            "name": "name",
+            "type": "str",
+            "desc": "Required. The Epic\u2019s name.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "completed_at_override",
+            "type": "datetime",
+            "desc": "A manual override for the time/date the Epic was completed.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "created_at",
+            "type": "datetime",
+            "desc": "Defaults to the time/date it is created but can be set to reflect another date.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "deadline",
+            "type": "Optional[datetime]",
+            "desc": "The Epic\u2019s deadline.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "description",
+            "type": "str",
+            "desc": "The Epic\u2019s description.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "epic_state_id",
+            "type": "int",
+            "desc": "The ID of the Epic State.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "external_id",
+            "type": "str",
+            "desc": "This field can be set to another unique ID. In the case that the Epic has been imported from another tool, the ID in the other tool can be indicated here.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "follower_ids",
+            "type": "List[str]",
+            "desc": "An array of UUIDs for any Members you want to add as Followers on this new Epic.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "labels",
+            "type": "List[CreateLabelParams]",
+            "desc": "An array of Labels attached to the Epic.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "milestone_id",
+            "type": "Optional[int]",
+            "desc": "The ID of the Milestone this Epic is related to.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "owner_ids",
+            "type": "List[str]",
+            "desc": "An array of UUIDs for any members you want to add as Owners on this new Epic.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "requested_by_id",
+            "type": "str",
+            "desc": "The ID of the member that requested the epic.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "started_at_override",
+            "type": "datetime",
+            "desc": "A manual override for the time/date the Epic was started.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "state",
+            "type": "MilestoneWorkflowState",
+            "desc": "Deprecated The Epic\u2019s state (to do, in progress, or done); will be ignored when epic_state_id is set.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "updated_at",
+            "type": "datetime",
+            "desc": "Defaults to the time/date it is created but can be set to reflect another date.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Create Epic allows you to create a new Epic in Clubhouse."
+    ],
+    "http_verb": "post",
+    "url_path": "/epics",
+    "category": "Epics"
+}

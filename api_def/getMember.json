@@ -1,0 +1,27 @@
+{
+    "title": "Get Member",
+    "identifier": "getMember",
+    "response": "Member",
+    "params": [
+        {
+            "name": "member_public_id",
+            "type": "str",
+            "desc": "Required. The Member\u2019s unique ID.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "org-public-id",
+            "type": "str",
+            "desc": "The unique ID of the Organization to limit the lookup to.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Returns information about a Member."
+    ],
+    "http_verb": "get",
+    "url_path": "/members/{member_public_id}",
+    "category": "Members"
+}

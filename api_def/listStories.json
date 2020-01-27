@@ -1,0 +1,20 @@
+{
+    "title": "List Stories",
+    "identifier": "listStories",
+    "response": "List[StorySlim]",
+    "params": [
+        {
+            "name": "project_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Project.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "List Stories returns a list of all Stories in a selected Project and their attributes."
+    ],
+    "http_verb": "get",
+    "url_path": "/projects/{project_public_id}/stories",
+    "category": "Projects"
+}

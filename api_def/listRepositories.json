@@ -1,0 +1,12 @@
+{
+    "title": "List Repositories",
+    "identifier": "listRepositories",
+    "response": "List[Repository]",
+    "params": [],
+    "description": [
+        "List Repositories returns a list of all Repositories and their attributes."
+    ],
+    "http_verb": "get",
+    "url_path": "/repositories",
+    "category": "Repositories"
+}

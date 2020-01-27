@@ -1,0 +1,20 @@
+{
+    "title": "Delete Story Link",
+    "identifier": "deleteStoryLink",
+    "response": "void",
+    "params": [
+        {
+            "name": "story_link_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Story Link.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "Delete Story Link can be used to delete any Story Link."
+    ],
+    "http_verb": "delete",
+    "url_path": "/story-links/{story_link_public_id}",
+    "category": "Story-Links"
+}

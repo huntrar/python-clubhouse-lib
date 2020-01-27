@@ -1,0 +1,20 @@
+{
+    "title": "List Category Milestones",
+    "identifier": "listCategoryMilestones",
+    "response": "List[Milestone]",
+    "params": [
+        {
+            "name": "category_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Category.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "List Category Milestones returns a list of all Milestones with the Category."
+    ],
+    "http_verb": "get",
+    "url_path": "/categories/{category_public_id}/milestones",
+    "category": "Categories"
+}

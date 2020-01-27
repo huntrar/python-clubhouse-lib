@@ -1,0 +1,20 @@
+{
+    "title": "List Epic Comments",
+    "identifier": "listEpicComments",
+    "response": "List[ThreadedComment]",
+    "params": [
+        {
+            "name": "epic_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Epic.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "Get a list of all Comments on an Epic."
+    ],
+    "http_verb": "get",
+    "url_path": "/epics/{epic_public_id}/comments",
+    "category": "Epics"
+}

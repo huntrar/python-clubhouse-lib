@@ -1,0 +1,20 @@
+{
+    "title": "Get Label",
+    "identifier": "getLabel",
+    "response": "Label",
+    "params": [
+        {
+            "name": "label_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Label.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "Get Label returns information about the selected Label."
+    ],
+    "http_verb": "get",
+    "url_path": "/labels/{label_public_id}",
+    "category": "Labels"
+}

@@ -1,0 +1,188 @@
+{
+    "title": "Create Story",
+    "identifier": "createStory",
+    "response": "Story",
+    "params": [
+        {
+            "name": "name",
+            "type": "str",
+            "desc": "Required. The name of the story.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "project_id",
+            "type": "int",
+            "desc": "Required. The ID of the project the story belongs to.",
+            "required": true,
+            "body_param": true
+        },
+        {
+            "name": "archived",
+            "type": "bool",
+            "desc": "Controls the story\u2019s archived state.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "comments",
+            "type": "List[CreateStoryCommentParams]",
+            "desc": "An array of comments to add to the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "completed_at_override",
+            "type": "datetime",
+            "desc": "A manual override for the time/date the Story was completed.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "created_at",
+            "type": "datetime",
+            "desc": "The time/date the Story was created.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "deadline",
+            "type": "Optional[datetime]",
+            "desc": "The due date of the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "description",
+            "type": "str",
+            "desc": "The description of the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "epic_id",
+            "type": "Optional[int]",
+            "desc": "The ID of the epic the story belongs to.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "estimate",
+            "type": "Optional[int]",
+            "desc": "The numeric point estimate of the story. Can also be null, which means unestimated.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "external_id",
+            "type": "str",
+            "desc": "This field can be set to another unique ID. In the case that the Story has been imported from another tool, the ID in the other tool can be indicated here.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "external_tickets",
+            "type": "List[CreateExternalTicketParams]",
+            "desc": "An array of External Tickets associated with this story. These External Tickets must have unquie external id. Duplicated External Tickets will be removed.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "file_ids",
+            "type": "List[int]",
+            "desc": "An array of IDs of files attached to the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "follower_ids",
+            "type": "List[str]",
+            "desc": "An array of UUIDs of the followers of this story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "iteration_id",
+            "type": "Optional[int]",
+            "desc": "The ID of the iteration the story belongs to.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "labels",
+            "type": "List[CreateLabelParams]",
+            "desc": "An array of labels attached to the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "linked_file_ids",
+            "type": "List[int]",
+            "desc": "An array of IDs of linked files attached to the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "owner_ids",
+            "type": "List[str]",
+            "desc": "An array of UUIDs of the owners of this story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "requested_by_id",
+            "type": "str",
+            "desc": "The ID of the member that requested the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "started_at_override",
+            "type": "datetime",
+            "desc": "A manual override for the time/date the Story was started.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "story_links",
+            "type": "List[CreateStoryLinkParams]",
+            "desc": "An array of story links attached to the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "story_type",
+            "type": "StoryType",
+            "desc": "The type of story (feature, bug, chore).",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "tasks",
+            "type": "List[CreateTaskParams]",
+            "desc": "An array of tasks connected to the story.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "updated_at",
+            "type": "datetime",
+            "desc": "The time/date the Story was updated.",
+            "required": false,
+            "body_param": true
+        },
+        {
+            "name": "workflow_state_id",
+            "type": "int",
+            "desc": "The ID of the workflow state the story is currently in.",
+            "required": false,
+            "body_param": true
+        }
+    ],
+    "description": [
+        "Create Story is used to add a new story to your Clubhouse."
+    ],
+    "http_verb": "post",
+    "url_path": "/stories",
+    "category": "Stories"
+}

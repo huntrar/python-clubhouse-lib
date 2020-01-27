@@ -1,0 +1,27 @@
+{
+    "title": "Get Task",
+    "identifier": "getTask",
+    "response": "Task",
+    "params": [
+        {
+            "name": "story_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Story this Task is associated with.",
+            "required": true,
+            "body_param": false
+        },
+        {
+            "name": "task_public_id",
+            "type": "int",
+            "desc": "Required. The unique ID of the Task.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "Returns information about a chosen Task."
+    ],
+    "http_verb": "get",
+    "url_path": "/stories/{story_public_id}/tasks/{task_public_id}",
+    "category": "Stories"
+}

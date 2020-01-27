@@ -1,0 +1,20 @@
+{
+    "title": "Delete Milestone",
+    "identifier": "deleteMilestone",
+    "response": "void",
+    "params": [
+        {
+            "name": "milestone_public_id",
+            "type": "int",
+            "desc": "Required. The ID of the Milestone.",
+            "required": true,
+            "body_param": false
+        }
+    ],
+    "description": [
+        "Delete Milestone can be used to delete any Milestone."
+    ],
+    "http_verb": "delete",
+    "url_path": "/milestones/{milestone_public_id}",
+    "category": "Milestones"
+}

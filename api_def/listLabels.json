@@ -1,0 +1,12 @@
+{
+    "title": "List Labels",
+    "identifier": "listLabels",
+    "response": "List[Label]",
+    "params": [],
+    "description": [
+        "List Labels returns a list of all Labels and their attributes."
+    ],
+    "http_verb": "get",
+    "url_path": "/labels",
+    "category": "Labels"
+}

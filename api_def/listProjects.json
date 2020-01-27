@@ -1,0 +1,12 @@
+{
+    "title": "List Projects",
+    "identifier": "listProjects",
+    "response": "List[Project]",
+    "params": [],
+    "description": [
+        "List Projects returns a list of all Projects and their attributes."
+    ],
+    "http_verb": "get",
+    "url_path": "/projects",
+    "category": "Projects"
+}

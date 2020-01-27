@@ -1,0 +1,12 @@
+{
+    "title": "Enable Iterations",
+    "identifier": "enableIterations",
+    "response": "void",
+    "params": [],
+    "description": [
+        "Enables Iterations for the current workspace"
+    ],
+    "http_verb": "put",
+    "url_path": "/iterations/enable",
+    "category": "Iterations"
+}
