@@ -40,7 +40,7 @@ if __name__ == "__main__":
                 url_params.append(param)
         
         # Whether or not the dict should be explicitly built
-        build_dict = False
+        build_dict = True
         # Build the Python parameter list and documentation parameter list
         py_parameter_list:List[str] = []
         doc_parameter_list:List[str] = []
@@ -52,9 +52,11 @@ if __name__ == "__main__":
             if new_name.find('-') != -1:
                 new_name = new_name.replace('-', '_')
                 build_dict = True
+            if not p['body_param']:
+                build_dict = True
             py_parameter_list.append('{}: {}{}'.format(new_name, p['type'], np))
             doc_parameter_list.append('param {}: {}'.format(new_name, p['desc']))
-        
+
         # Convert the parameter list into properly spaced and tabbed parameters
         py_parameters = ''
         if len(py_parameter_list) > 0:
@@ -113,7 +115,7 @@ if __name__ == "__main__":
                     request_string += '\n            '
                     request_string += ',\n            '.join([
                         "'{}': {}".format(p['name'], p['name'].replace('-', '_')) 
-                        for p in func['params']
+                        for p in body_params
                     ])
                     request_string += '\n        })'
 

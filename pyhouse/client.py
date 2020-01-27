@@ -147,7 +147,12 @@ class ClubhouseClient:
         param color: The hex color to be displayed with the Category (for example, “#ff0000”).
         param external_id: This field can be set to another unique ID. In the case that the Category has been imported from another tool, the ID in the other tool can be indicated here.
         """
-        return self.post("/categories", PrepareLocals(locals())).json()
+        return self.post("/categories", PrepareLocals({
+            'name': name,
+            'type': type,
+            'color': color,
+            'external_id': external_id
+        })).json()
         
 
     def deleteCategory(self, category_public_id: int):
@@ -196,7 +201,11 @@ class ClubhouseClient:
         param color: The hex color to be displayed with the Category (for example, “#ff0000”).
         param name: The new name of the Category.
         """
-        return self.put("/categories/{category_public_id}".format(category_public_id=category_public_id), PrepareLocals(locals())).json()
+        return self.put("/categories/{category_public_id}".format(category_public_id=category_public_id), PrepareLocals({
+            'archived': archived,
+            'color': color,
+            'name': name
+        })).json()
         
 
     ####################
@@ -215,7 +224,11 @@ class ClubhouseClient:
         param story_contents: Required. A map of story attributes this template populates.
         param author_id: The id of the user creating this template.
         """
-        return self.post("/entity-templates", PrepareLocals(locals())).json()
+        return self.post("/entity-templates", PrepareLocals({
+            'name': name,
+            'story_contents': story_contents,
+            'author_id': author_id
+        })).json()
         
 
     def deleteEntityTemplate(self, entity_template_public_id: str):
@@ -259,7 +272,10 @@ class ClubhouseClient:
         param name: The updated template name.
         param story_contents: A map of story attributes this template populates.
         """
-        return self.put("/entity-templates/{entity_template_public_id}".format(entity_template_public_id=entity_template_public_id), PrepareLocals(locals())).json()
+        return self.put("/entity-templates/{entity_template_public_id}".format(entity_template_public_id=entity_template_public_id), PrepareLocals({
+            'name': name,
+            'story_contents': story_contents
+        })).json()
         
 
     #################
@@ -311,7 +327,23 @@ class ClubhouseClient:
         param state: Deprecated The Epic’s state (to do, in progress, or done); will be ignored when epic_state_id is set.
         param updated_at: Defaults to the time/date it is created but can be set to reflect another date.
         """
-        return self.post("/epics", PrepareLocals(locals())).json()
+        return self.post("/epics", PrepareLocals({
+            'name': name,
+            'completed_at_override': completed_at_override,
+            'created_at': created_at,
+            'deadline': deadline,
+            'description': description,
+            'epic_state_id': epic_state_id,
+            'external_id': external_id,
+            'follower_ids': follower_ids,
+            'labels': labels,
+            'milestone_id': milestone_id,
+            'owner_ids': owner_ids,
+            'requested_by_id': requested_by_id,
+            'started_at_override': started_at_override,
+            'state': state,
+            'updated_at': updated_at
+        })).json()
         
 
     def createEpicComment(self,
@@ -332,7 +364,13 @@ class ClubhouseClient:
         param external_id: This field can be set to another unique ID. In the case that the comment has been imported from another tool, the ID in the other tool can be indicated here.
         param updated_at: Defaults to the time/date the comment is last updated, but can be set to reflect another date.
         """
-        return self.post("/epics/{epic_public_id}/comments".format(epic_public_id=epic_public_id), PrepareLocals(locals())).json()
+        return self.post("/epics/{epic_public_id}/comments".format(epic_public_id=epic_public_id), PrepareLocals({
+            'text': text,
+            'author_id': author_id,
+            'created_at': created_at,
+            'external_id': external_id,
+            'updated_at': updated_at
+        })).json()
         
 
     def createEpicCommentComment(self,
@@ -355,7 +393,13 @@ class ClubhouseClient:
         param external_id: This field can be set to another unique ID. In the case that the comment has been imported from another tool, the ID in the other tool can be indicated here.
         param updated_at: Defaults to the time/date the comment is last updated, but can be set to reflect another date.
         """
-        return self.post("/epics/{epic_public_id}/comments/{comment_public_id}".format(comment_public_id=comment_public_id,epic_public_id=epic_public_id), PrepareLocals(locals())).json()
+        return self.post("/epics/{epic_public_id}/comments/{comment_public_id}".format(comment_public_id=comment_public_id,epic_public_id=epic_public_id), PrepareLocals({
+            'text': text,
+            'author_id': author_id,
+            'created_at': created_at,
+            'external_id': external_id,
+            'updated_at': updated_at
+        })).json()
         
 
     def deleteEpic(self, epic_public_id: int):
@@ -448,7 +492,23 @@ class ClubhouseClient:
         param started_at_override: A manual override for the time/date the Epic was started.
         param state: Deprecated The Epic’s state (to do, in progress, or done); will be ignored when epic_state_id is set.
         """
-        return self.put("/epics/{epic_public_id}".format(epic_public_id=epic_public_id), PrepareLocals(locals())).json()
+        return self.put("/epics/{epic_public_id}".format(epic_public_id=epic_public_id), PrepareLocals({
+            'after_id': after_id,
+            'archived': archived,
+            'before_id': before_id,
+            'completed_at_override': completed_at_override,
+            'deadline': deadline,
+            'description': description,
+            'epic_state_id': epic_state_id,
+            'follower_ids': follower_ids,
+            'labels': labels,
+            'milestone_id': milestone_id,
+            'name': name,
+            'owner_ids': owner_ids,
+            'requested_by_id': requested_by_id,
+            'started_at_override': started_at_override,
+            'state': state
+        })).json()
         
 
     def updateEpicComment(self, comment_public_id: int, epic_public_id: int, text: str) -> ThreadedComment:
@@ -459,7 +519,9 @@ class ClubhouseClient:
         param epic_public_id: Required. The ID of the associated Epic.
         param text: Required. The updated comment text.
         """
-        return self.put("/epics/{epic_public_id}/comments/{comment_public_id}".format(comment_public_id=comment_public_id,epic_public_id=epic_public_id), PrepareLocals(locals())).json()
+        return self.put("/epics/{epic_public_id}/comments/{comment_public_id}".format(comment_public_id=comment_public_id,epic_public_id=epic_public_id), PrepareLocals({
+            'text': text
+        })).json()
         
 
     #########
@@ -509,7 +571,14 @@ class ClubhouseClient:
         param updated_at: The time/date that the file was last updated.
         param uploader_id: The unique ID assigned to the Member who uploaded the file to Clubhouse.
         """
-        return self.put("/files/{file_public_id}".format(file_public_id=file_public_id), PrepareLocals(locals())).json()
+        return self.put("/files/{file_public_id}".format(file_public_id=file_public_id), PrepareLocals({
+            'created_at': created_at,
+            'description': description,
+            'external_id': external_id,
+            'name': name,
+            'updated_at': updated_at,
+            'uploader_id': uploader_id
+        })).json()
         
 
     def uploadFiles(self) -> List[File]:
@@ -535,7 +604,13 @@ class ClubhouseClient:
         param display_icon_id: The Icon id for the avatar of this Group.
         param member_ids: The Member ids to add to this Group.
         """
-        return self.post("/groups", PrepareLocals(locals())).json()
+        return self.post("/groups", PrepareLocals({
+            'mention_name': mention_name,
+            'name': name,
+            'description': description,
+            'display_icon_id': display_icon_id,
+            'member_ids': member_ids
+        })).json()
         
 
     def getGroup(self, group_public_id: str) -> Group:
@@ -565,7 +640,14 @@ class ClubhouseClient:
         param mention_name: The mention name of this Group.
         param name: The name of this Group.
         """
-        return self.put("/groups/{group_public_id}".format(group_public_id=group_public_id), PrepareLocals(locals())).json()
+        return self.put("/groups/{group_public_id}".format(group_public_id=group_public_id), PrepareLocals({
+            'archived': archived,
+            'description': description,
+            'display_icon_id': display_icon_id,
+            'member_ids': member_ids,
+            'mention_name': mention_name,
+            'name': name
+        })).json()
         
 
     ##############
@@ -588,7 +670,14 @@ class ClubhouseClient:
         param follower_ids: An array of UUIDs for any Members you want to add as Followers.
         param labels: An array of Labels attached to the Iteration.
         """
-        return self.post("/iterations", PrepareLocals(locals())).json()
+        return self.post("/iterations", PrepareLocals({
+            'end_date': end_date,
+            'name': name,
+            'start_date': start_date,
+            'description': description,
+            'follower_ids': follower_ids,
+            'labels': labels
+        })).json()
         
 
     def deleteIteration(self, iteration_public_id: int):
@@ -633,7 +722,14 @@ class ClubhouseClient:
         param name: The name of this Iteration
         param start_date: The date this Iteration begins, e.g. 2019-07-01
         """
-        return self.put("/iterations/{iteration_public_id}".format(iteration_public_id=iteration_public_id), PrepareLocals(locals())).json()
+        return self.put("/iterations/{iteration_public_id}".format(iteration_public_id=iteration_public_id), PrepareLocals({
+            'description': description,
+            'end_date': end_date,
+            'follower_ids': follower_ids,
+            'labels': labels,
+            'name': name,
+            'start_date': start_date
+        })).json()
         
 
     ##########
@@ -654,7 +750,12 @@ class ClubhouseClient:
         param description: The description of the new Label.
         param external_id: This field can be set to another unique ID. In the case that the Label has been imported from another tool, the ID in the other tool can be indicated here.
         """
-        return self.post("/labels", PrepareLocals(locals())).json()
+        return self.post("/labels", PrepareLocals({
+            'name': name,
+            'color': color,
+            'description': description,
+            'external_id': external_id
+        })).json()
         
 
     def deleteLabel(self, label_public_id: int):
@@ -705,7 +806,12 @@ class ClubhouseClient:
         param description: The new description of the label.
         param name: The new name of the label.
         """
-        return self.put("/labels/{label_public_id}".format(label_public_id=label_public_id), PrepareLocals(locals())).json()
+        return self.put("/labels/{label_public_id}".format(label_public_id=label_public_id), PrepareLocals({
+            'archived': archived,
+            'color': color,
+            'description': description,
+            'name': name
+        })).json()
         
 
     ################
@@ -736,7 +842,17 @@ class ClubhouseClient:
         param thumbnail_url: The URL of the thumbnail, if the integration provided it.
         param uploader_id: The UUID of the member that uploaded the file.
         """
-        return self.post("/linked-files", PrepareLocals(locals())).json()
+        return self.post("/linked-files", PrepareLocals({
+            'name': name,
+            'type': type,
+            'url': url,
+            'content_type': content_type,
+            'description': description,
+            'size': size,
+            'story_id': story_id,
+            'thumbnail_url': thumbnail_url,
+            'uploader_id': uploader_id
+        })).json()
         
 
     def deleteLinkedFile(self, linked_file_public_id: int):
@@ -786,7 +902,16 @@ class ClubhouseClient:
         param uploader_id: The UUID of the member that uploaded the file.
         param url: The URL of linked file.
         """
-        return self.put("/linked-files/{linked_file_public_id}".format(linked_file_public_id=linked_file_public_id), PrepareLocals(locals())).json()
+        return self.put("/linked-files/{linked_file_public_id}".format(linked_file_public_id=linked_file_public_id), PrepareLocals({
+            'description': description,
+            'name': name,
+            'size': size,
+            'story_id': story_id,
+            'thumbnail_url': thumbnail_url,
+            'type': type,
+            'uploader_id': uploader_id,
+            'url': url
+        })).json()
         
 
     ##########
@@ -813,7 +938,6 @@ class ClubhouseClient:
         param org_public_id: The unique ID of the Organization to limit the lookup to.
         """
         return self.get("/members/{member_public_id}".format(member_public_id=member_public_id), PrepareLocals({
-            'member_public_id': member_public_id,
             'org-public-id': org_public_id
         })).json()
         
@@ -853,7 +977,14 @@ class ClubhouseClient:
         param started_at_override: A manual override for the time/date the Milestone was started.
         param state: The workflow state that the Milestone is in.
         """
-        return self.post("/milestones", PrepareLocals(locals())).json()
+        return self.post("/milestones", PrepareLocals({
+            'name': name,
+            'categories': categories,
+            'completed_at_override': completed_at_override,
+            'description': description,
+            'started_at_override': started_at_override,
+            'state': state
+        })).json()
         
 
     def deleteMilestone(self, milestone_public_id: int):
@@ -912,7 +1043,16 @@ class ClubhouseClient:
         param started_at_override: A manual override for the time/date the Milestone was started.
         param state: The workflow state that the Milestone is in.
         """
-        return self.put("/milestones/{milestone_public_id}".format(milestone_public_id=milestone_public_id), PrepareLocals(locals())).json()
+        return self.put("/milestones/{milestone_public_id}".format(milestone_public_id=milestone_public_id), PrepareLocals({
+            'after_id': after_id,
+            'before_id': before_id,
+            'categories': categories,
+            'completed_at_override': completed_at_override,
+            'description': description,
+            'name': name,
+            'started_at_override': started_at_override,
+            'state': state
+        })).json()
         
 
     ############
@@ -947,7 +1087,19 @@ class ClubhouseClient:
         param start_time: The date at which the Project was started.
         param updated_at: Defaults to the time/date it is created but can be set to reflect another date.
         """
-        return self.post("/projects", PrepareLocals(locals())).json()
+        return self.post("/projects", PrepareLocals({
+            'name': name,
+            'team_id': team_id,
+            'abbreviation': abbreviation,
+            'color': color,
+            'created_at': created_at,
+            'description': description,
+            'external_id': external_id,
+            'follower_ids': follower_ids,
+            'iteration_length': iteration_length,
+            'start_time': start_time,
+            'updated_at': updated_at
+        })).json()
         
 
     def deleteProject(self, project_public_id: int):
@@ -1008,7 +1160,17 @@ class ClubhouseClient:
         param show_thermometer: Configuration to enable or disable thermometers in the Story summary.
         param team_id: The ID of the team the project belongs to.
         """
-        return self.put("/projects/{project_public_id}".format(project_public_id=project_public_id), PrepareLocals(locals())).json()
+        return self.put("/projects/{project_public_id}".format(project_public_id=project_public_id), PrepareLocals({
+            'abbreviation': abbreviation,
+            'archived': archived,
+            'color': color,
+            'days_to_thermometer': days_to_thermometer,
+            'description': description,
+            'follower_ids': follower_ids,
+            'name': name,
+            'show_thermometer': show_thermometer,
+            'team_id': team_id
+        })).json()
         
 
     ################
@@ -1043,7 +1205,10 @@ class ClubhouseClient:
         param query: Required. See our help center article on search operators
         param page_size: The number of search results to include in a page. Minimum of 1 and maximum of 25.
         """
-        return self.get("/search", PrepareLocals(locals())).json()
+        return self.get("/search", PrepareLocals({
+            'query': query,
+            'page_size': page_size
+        })).json()
         
 
     def searchEpics(self,
@@ -1056,7 +1221,10 @@ class ClubhouseClient:
         param query: Required. See our help center article on search operators
         param page_size: The number of search results to include in a page. Minimum of 1 and maximum of 25.
         """
-        return self.get("/search/epics", PrepareLocals(locals())).json()
+        return self.get("/search/epics", PrepareLocals({
+            'query': query,
+            'page_size': page_size
+        })).json()
         
 
     def searchStories(self,
@@ -1069,7 +1237,10 @@ class ClubhouseClient:
         param query: Required. See our help center article on search operators
         param page_size: The number of search results to include in a page. Minimum of 1 and maximum of 25.
         """
-        return self.get("/search/stories", PrepareLocals(locals())).json()
+        return self.get("/search/stories", PrepareLocals({
+            'query': query,
+            'page_size': page_size
+        })).json()
         
 
     ###########
@@ -1094,7 +1265,13 @@ class ClubhouseClient:
         param external_id: This field can be set to another unique ID. In the case that the comment has been imported from another tool, the ID in the other tool can be indicated here.
         param updated_at: Defaults to the time/date the comment is last updated, but can be set to reflect another date.
         """
-        return self.post("/stories/{story_public_id}/comments".format(story_public_id=story_public_id), PrepareLocals(locals())).json()
+        return self.post("/stories/{story_public_id}/comments".format(story_public_id=story_public_id), PrepareLocals({
+            'text': text,
+            'author_id': author_id,
+            'created_at': created_at,
+            'external_id': external_id,
+            'updated_at': updated_at
+        })).json()
         
 
     def createMultipleStories(self, stories: List[CreateStoryParams]) -> List[StorySlim]:
@@ -1103,7 +1280,9 @@ class ClubhouseClient:
         
         param stories: Required. An array of stories to be created.
         """
-        return self.post("/stories/bulk", PrepareLocals(locals())).json()
+        return self.post("/stories/bulk", PrepareLocals({
+            'stories': stories
+        })).json()
         
 
     def createReaction(self, comment_public_id: int, emoji: str, story_public_id: int) -> List[Reaction]:
@@ -1114,7 +1293,9 @@ class ClubhouseClient:
         param emoji: Required. The emoji short-code to add / remove. E.g. :thumbsup::skin-tone-4:.
         param story_public_id: Required. The ID of the Story that the Comment is in.
         """
-        return self.post("/stories/{story_public_id}/comments/{comment_public_id}/reactions".format(comment_public_id=comment_public_id,story_public_id=story_public_id), PrepareLocals(locals())).json()
+        return self.post("/stories/{story_public_id}/comments/{comment_public_id}/reactions".format(comment_public_id=comment_public_id,story_public_id=story_public_id), PrepareLocals({
+            'emoji': emoji
+        })).json()
         
 
     def createStory(self,
@@ -1173,7 +1354,33 @@ class ClubhouseClient:
         param updated_at: The time/date the Story was updated.
         param workflow_state_id: The ID of the workflow state the story is currently in.
         """
-        return self.post("/stories", PrepareLocals(locals())).json()
+        return self.post("/stories", PrepareLocals({
+            'name': name,
+            'project_id': project_id,
+            'archived': archived,
+            'comments': comments,
+            'completed_at_override': completed_at_override,
+            'created_at': created_at,
+            'deadline': deadline,
+            'description': description,
+            'epic_id': epic_id,
+            'estimate': estimate,
+            'external_id': external_id,
+            'external_tickets': external_tickets,
+            'file_ids': file_ids,
+            'follower_ids': follower_ids,
+            'iteration_id': iteration_id,
+            'labels': labels,
+            'linked_file_ids': linked_file_ids,
+            'owner_ids': owner_ids,
+            'requested_by_id': requested_by_id,
+            'started_at_override': started_at_override,
+            'story_links': story_links,
+            'story_type': story_type,
+            'tasks': tasks,
+            'updated_at': updated_at,
+            'workflow_state_id': workflow_state_id
+        })).json()
         
 
     def createTask(self,
@@ -1196,7 +1403,14 @@ class ClubhouseClient:
         param owner_ids: An array of UUIDs for any members you want to add as Owners on this new Task.
         param updated_at: Defaults to the time/date the Task is created in Clubhouse but can be set to reflect another time/date.
         """
-        return self.post("/stories/{story_public_id}/tasks".format(story_public_id=story_public_id), PrepareLocals(locals())).json()
+        return self.post("/stories/{story_public_id}/tasks".format(story_public_id=story_public_id), PrepareLocals({
+            'description': description,
+            'complete': complete,
+            'created_at': created_at,
+            'external_id': external_id,
+            'owner_ids': owner_ids,
+            'updated_at': updated_at
+        })).json()
         
 
     def deleteComment(self, comment_public_id: int, story_public_id: int):
@@ -1215,7 +1429,9 @@ class ClubhouseClient:
         
         param story_ids: Required. An array of IDs of Stories to delete.
         """
-        self.delete("/stories/bulk", PrepareLocals(locals()))
+        self.delete("/stories/bulk", PrepareLocals({
+            'story_ids': story_ids
+        }))
         
 
     def deleteReaction(self, comment_public_id: int, emoji: str, story_public_id: int):
@@ -1226,7 +1442,9 @@ class ClubhouseClient:
         param emoji: Required. The emoji short-code to add / remove. E.g. :thumbsup::skin-tone-4:.
         param story_public_id: Required. The ID of the Story that the Comment is in.
         """
-        self.delete("/stories/{story_public_id}/comments/{comment_public_id}/reactions".format(comment_public_id=comment_public_id,story_public_id=story_public_id), PrepareLocals(locals()))
+        self.delete("/stories/{story_public_id}/comments/{comment_public_id}/reactions".format(comment_public_id=comment_public_id,story_public_id=story_public_id), PrepareLocals({
+            'emoji': emoji
+        }))
         
 
     def deleteStory(self, story_public_id: int):
@@ -1333,7 +1551,33 @@ class ClubhouseClient:
         param workflow_state_id: The unique IDs of the specific Workflow States that the Stories should be in.
         param workflow_state_types: The type of Workflow State the Stories may be in.
         """
-        return self.post("/stories/search", PrepareLocals(locals())).json()
+        return self.post("/stories/search", PrepareLocals({
+            'archived': archived,
+            'completed_at_end': completed_at_end,
+            'completed_at_start': completed_at_start,
+            'created_at_end': created_at_end,
+            'created_at_start': created_at_start,
+            'deadline_end': deadline_end,
+            'deadline_start': deadline_start,
+            'epic_id': epic_id,
+            'epic_ids': epic_ids,
+            'estimate': estimate,
+            'external_id': external_id,
+            'iteration_id': iteration_id,
+            'iteration_ids': iteration_ids,
+            'label_ids': label_ids,
+            'label_name': label_name,
+            'owner_id': owner_id,
+            'owner_ids': owner_ids,
+            'project_id': project_id,
+            'project_ids': project_ids,
+            'requested_by_id': requested_by_id,
+            'story_type': story_type,
+            'updated_at_end': updated_at_end,
+            'updated_at_start': updated_at_start,
+            'workflow_state_id': workflow_state_id,
+            'workflow_state_types': workflow_state_types
+        })).json()
         
 
     def updateComment(self, comment_public_id: int, story_public_id: int, text: str) -> Comment:
@@ -1344,7 +1588,9 @@ class ClubhouseClient:
         param story_public_id: Required. The ID of the Story that the Comment is in.
         param text: Required. The updated comment text.
         """
-        return self.put("/stories/{story_public_id}/comments/{comment_public_id}".format(comment_public_id=comment_public_id,story_public_id=story_public_id), PrepareLocals(locals())).json()
+        return self.put("/stories/{story_public_id}/comments/{comment_public_id}".format(comment_public_id=comment_public_id,story_public_id=story_public_id), PrepareLocals({
+            'text': text
+        })).json()
         
 
     def updateMultipleStories(self,
@@ -1389,7 +1635,26 @@ class ClubhouseClient:
         param story_type: The type of story (feature, bug, chore).
         param workflow_state_id: The ID of the workflow state the story is currently in.
         """
-        return self.put("/stories/bulk", PrepareLocals(locals())).json()
+        return self.put("/stories/bulk", PrepareLocals({
+            'story_ids': story_ids,
+            'after_id': after_id,
+            'archived': archived,
+            'before_id': before_id,
+            'deadline': deadline,
+            'epic_id': epic_id,
+            'estimate': estimate,
+            'follower_ids_add': follower_ids_add,
+            'follower_ids_remove': follower_ids_remove,
+            'iteration_id': iteration_id,
+            'labels_add': labels_add,
+            'labels_remove': labels_remove,
+            'owner_ids_add': owner_ids_add,
+            'owner_ids_remove': owner_ids_remove,
+            'project_id': project_id,
+            'requested_by_id': requested_by_id,
+            'story_type': story_type,
+            'workflow_state_id': workflow_state_id
+        })).json()
         
 
     def updateStory(self,
@@ -1446,7 +1711,31 @@ class ClubhouseClient:
         param story_type: The type of story (feature, bug, chore).
         param workflow_state_id: The ID of the workflow state the story is currently in.
         """
-        return self.put("/stories/{story_public_id}".format(story_public_id=story_public_id), PrepareLocals(locals())).json()
+        return self.put("/stories/{story_public_id}".format(story_public_id=story_public_id), PrepareLocals({
+            'after_id': after_id,
+            'archived': archived,
+            'before_id': before_id,
+            'branch_ids': branch_ids,
+            'commit_ids': commit_ids,
+            'completed_at_override': completed_at_override,
+            'deadline': deadline,
+            'description': description,
+            'epic_id': epic_id,
+            'estimate': estimate,
+            'file_ids': file_ids,
+            'follower_ids': follower_ids,
+            'iteration_id': iteration_id,
+            'labels': labels,
+            'linked_file_ids': linked_file_ids,
+            'name': name,
+            'owner_ids': owner_ids,
+            'project_id': project_id,
+            'pull_request_ids': pull_request_ids,
+            'requested_by_id': requested_by_id,
+            'started_at_override': started_at_override,
+            'story_type': story_type,
+            'workflow_state_id': workflow_state_id
+        })).json()
         
 
     def updateTask(self,
@@ -1469,7 +1758,13 @@ class ClubhouseClient:
         param description: The Task’s description.
         param owner_ids: An array of UUIDs of the owners of this story.
         """
-        return self.put("/stories/{story_public_id}/tasks/{task_public_id}".format(story_public_id=story_public_id,task_public_id=task_public_id), PrepareLocals(locals())).json()
+        return self.put("/stories/{story_public_id}/tasks/{task_public_id}".format(story_public_id=story_public_id,task_public_id=task_public_id), PrepareLocals({
+            'after_id': after_id,
+            'before_id': before_id,
+            'complete': complete,
+            'description': description,
+            'owner_ids': owner_ids
+        })).json()
         
 
     ###############
@@ -1489,7 +1784,11 @@ class ClubhouseClient:
         param subject_id: Required. The ID of the subject Story.
         param verb: Required. The type of link.
         """
-        return self.post("/story-links", PrepareLocals(locals())).json()
+        return self.post("/story-links", PrepareLocals({
+            'object_id': object_id,
+            'subject_id': subject_id,
+            'verb': verb
+        })).json()
         
 
     def deleteStoryLink(self, story_link_public_id: int):
@@ -1517,7 +1816,9 @@ class ClubhouseClient:
         param story_link_public_id: Required. The unique ID of the Story Link.
         param verb: Required. The type of link.
         """
-        return self.put("/story-links/{story_link_public_id}".format(story_link_public_id=story_link_public_id), PrepareLocals(locals())).json()
+        return self.put("/story-links/{story_link_public_id}".format(story_link_public_id=story_link_public_id), PrepareLocals({
+            'verb': verb
+        })).json()
         
 
     #########
