@@ -1,0 +1,1 @@
+Pyhouse is a Python wrapper around the Clubhouse API. It leverages typed dicts to better provide utility to the programmer when dealing with Clubhouse data. This library only provides the basic glue between your application and Clubhouse, and it doesn't attempt to do anything more than that.
