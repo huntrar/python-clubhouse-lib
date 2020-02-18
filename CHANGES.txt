@@ -1,0 +1,4 @@
+1.0.0
+------
+
+ - Publishing the unofficial Python client library for the Clubhouse API.

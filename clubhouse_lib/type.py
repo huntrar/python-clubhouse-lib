@@ -1,6 +1,6 @@
+from datetime import datetime
 from enum import Enum
 from typing import List, Optional, TypedDict
-from datetime import datetime
 
 
 class CategoryType(str, Enum):
