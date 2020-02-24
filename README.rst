@@ -1,5 +1,5 @@
-python-clubhouse-lib |PyPI Version| |PyPI Monthly downloads|
-============================================================
+python-clubhouse-lib |PyPI Version| |Total Downloads|
+=====================================================
 
 The unofficial Python client library for the Clubhouse API.
 -----------------------------------------------------------
@@ -67,5 +67,5 @@ in the repository.
 
 .. |PyPI Version| image:: https://img.shields.io/pypi/v/clubhouse-lib.svg
    :target: https://pypi.python.org/pypi/clubhouse-lib
-.. |PyPI Monthly downloads| image:: https://img.shields.io/pypi/dm/clubhouse-lib.svg?style=flat
-   :target: https://pypi.python.org/pypi/clubhouse-lib
+.. |Total Downloads| image:: https://pepy.tech/badge/clubhouse-lib
+   :target: https://pepy.tech/project/clubhouse-lib
